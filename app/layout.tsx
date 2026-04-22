@@ -22,7 +22,7 @@ export default function RootLayout({
     <html
       lang="en"
     >
-      <body className={`${geistSans.className} antialiased bg-[#0a0a0f] text-[#e8e8f0]`}>
+      <body className={`${geistSans.className} antialiased  text-[#e8e8f0]`}>
         <ResponsiveNav />
   {children}
 </body>
