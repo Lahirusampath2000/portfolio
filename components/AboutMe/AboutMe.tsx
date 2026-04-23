@@ -29,7 +29,7 @@ const traits = [
 ]
 
 const stats = [
-  { val: '2+', label: 'Years Exp', sub: 'Professional' },
+  { val: '2+', label: 'Years Experience', sub: 'Professional' },
   { val: '10+', label: 'Tech Stack', sub: 'Mastered' },
 ]
 
