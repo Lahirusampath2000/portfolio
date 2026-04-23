@@ -1,7 +1,7 @@
 'use client'
 import React, { useState, useEffect, useRef } from 'react'
 import { FaJava, FaPython, FaPhp, FaReact, FaBootstrap, FaGithub, FaAws, FaNodeJs,FaChartBar } from 'react-icons/fa'
-import { SiJavascript, SiHtml5, SiExpress, SiLaravel, SiRedux,SiPaypal, SiMysql, SiPostgresql, SiSocketdotio, SiFlask, SiOpencv, SiTensorflow, SiPycharm, SiPostman, SiStripe, SiBitbucket, SiIntellijidea, SiLeaflet } from 'react-icons/si'
+import { SiJavascript, SiHtml5, SiExpress, SiLaravel, SiRedux,SiPaypal,SiTailwindcss ,SiNextdotjs, SiMysql, SiPostgresql, SiSocketdotio, SiFlask, SiOpencv, SiTensorflow, SiPycharm, SiPostman, SiStripe, SiBitbucket, SiIntellijidea, SiLeaflet } from 'react-icons/si'
 import { BsRobot, BsFiletypeCss, BsFiletypeSql } from 'react-icons/bs'
 import { MdLanguage, MdOutlineTranslate } from 'react-icons/md'
 
@@ -31,14 +31,16 @@ const categories: { id: CategoryId; label: string; emoji: string; color: string;
     skills: [
       { label: 'React.js',   icon: FaReact,       color: '#61dafb' },
       { label: 'Node.js',    icon: FaNodeJs,      color: '#68a063' },
+      { label: 'Next.js',    icon: SiNextdotjs,   color: '#000000' },
       { label: 'Express.js', icon: SiExpress,     color: '#4caf72' },
       { label: 'Redux',      icon: SiRedux,       color: '#764abc' },
       { label: 'Bootstrap',  icon: FaBootstrap,   color: '#7952b3' },
+      { label: 'Tailwind CSS', icon: SiTailwindcss, color: '#06b6d4' },
       { label: 'Socket.io',  icon: SiSocketdotio, color: '#0a0a0a' },
       { label: 'Laravel',    icon: SiLaravel,     color: '#ff2d20' },
       { label: 'Leaflet',    icon: SiLeaflet,     color: '#199900' },
       { label: 'rechart',     icon: FaChartBar,    color: '#4caf72' },
-      { label: 'Flask',      icon: SiFlask,       color: '#4caf72' },
+      { label: 'Flask',      icon: SiFlask,       color: '#060606' },
     ],
   },
   {
@@ -62,7 +64,7 @@ const categories: { id: CategoryId; label: string; emoji: string; color: string;
       { label: 'OpenCV',          icon: SiOpencv,    color: '#5c3ee8' },
       { label: 'TensorFlow',      icon: SiTensorflow,color: '#ff6f00' },
       { label: 'Flask ML',        icon: SiFlask,     color: '#4caf72' },
-      { label: 'Img Processing',  icon: SiOpencv,    color: '#5c3ee8' },
+      { label: 'Image Processing',  icon: SiOpencv,    color: '#5c3ee8' },
     ],
   },
   {
