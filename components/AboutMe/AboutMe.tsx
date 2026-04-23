@@ -433,7 +433,7 @@ export default function AboutMe() {
             </div>
 
             {/* Copy email mini-CTA */}
-            <button
+            {/* <button
               onClick={handleCopy}
               className="flex items-center justify-center gap-2 w-full py-3 rounded-2xl text-xs font-bold tracking-widest uppercase transition-all duration-300"
               style={{
@@ -447,7 +447,7 @@ export default function AboutMe() {
             >
               <span>{copyPulse ? '✓' : '📋'}</span>
               <span>{copyPulse ? 'Email Copied!' : 'Copy Email'}</span>
-            </button>
+            </button> */}
           </div>
 
           {/* RIGHT — Content */}
@@ -483,7 +483,7 @@ export default function AboutMe() {
               <div className="mt-5 h-px" style={{ background: 'linear-gradient(to right, rgba(76,175,114,0.5), transparent)' }} />
               <div className="mt-3 flex items-center gap-2">
                 <span className="w-1.5 h-1.5 rounded-full" style={{ background: '#4caf72', boxShadow: '0 0 6px #4caf72' }} />
-                <span className="text-xs font-bold text-gray-400 tracking-widest uppercase">Lahiru Sampath · 2025</span>
+                <span className="text-xs font-bold text-gray-400 tracking-widest uppercase">Lahiru Sampath</span>
               </div>
             </div>
 
