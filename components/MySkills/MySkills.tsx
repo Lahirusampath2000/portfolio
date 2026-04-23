@@ -1,7 +1,7 @@
 'use client'
 import React, { useState, useEffect, useRef } from 'react'
 import { FaJava, FaPython, FaPhp, FaReact, FaBootstrap, FaGithub, FaAws, FaNodeJs } from 'react-icons/fa'
-import { SiJavascript, SiHtml5, SiExpress, SiLaravel, SiRedux, SiPostgresql, SiSocketdotio, SiFlask, SiOpencv, SiTensorflow, SiPycharm, SiPostman, SiStripe, SiBitbucket, SiIntellijidea, SiLeaflet } from 'react-icons/si'
+import { SiJavascript, SiHtml5, SiExpress, SiLaravel, SiRedux, SiMysql, SiPostgresql, SiSocketdotio, SiFlask, SiOpencv, SiTensorflow, SiPycharm, SiPostman, SiStripe, SiBitbucket, SiIntellijidea, SiLeaflet } from 'react-icons/si'
 import { BsRobot, BsFiletypeCss, BsFiletypeSql } from 'react-icons/bs'
 import { MdLanguage, MdOutlineTranslate } from 'react-icons/md'
 
@@ -44,6 +44,7 @@ const categories: { id: CategoryId; label: string; emoji: string; color: string;
     id: 'tools', label: 'Tools', emoji: '🛠️', color: '#8aad95',
     skills: [
       { label: 'PostgreSQL', icon: SiPostgresql,  color: '#336791' },
+      { label: 'MySQL',      icon: SiMysql,       color: '#4479a1' },
       { label: 'AWS',     icon: FaAws,         color: '#ff9900' },
       { label: 'Postman',    icon: SiPostman,     color: '#ff6c37' },
       { label: 'GitHub',     icon: FaGithub,      color: '#050505' },
