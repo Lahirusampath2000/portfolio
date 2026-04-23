@@ -5,13 +5,13 @@ const traits = [
   {
     emoji: '⚡',
     label: 'Fast Learner',
-    desc: 'Picks up new frameworks, tools, and paradigms quickly — production-ready in days, not weeks.',
+    desc: 'Quickly adapts to new frameworks and tools — turning ideas into production-ready solutions with speed and precision.',
     color: '#f59e0b',
   },
   {
     emoji: '🤝',
     label: 'Team Player',
-    desc: 'Thrives in collaborative environments; values code reviews, pair programming, and shared ownership.',
+    desc: 'Enjoys collaborative development and building better code together.',
     color: '#3b82f6',
   },
   {
@@ -23,7 +23,7 @@ const traits = [
   {
     emoji: '🔥',
     label: 'Self-Motivated',
-    desc: 'Driven by curiosity and ownership — ships features proactively, not just when assigned.',
+    desc: 'Motivated by curiosity and responsibility, actively delivering value ahead of expectations.',
     color: '#ef4444',
   },
 ]
