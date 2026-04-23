@@ -13,20 +13,26 @@ const nodeDetails: Record<NodeId, { title: string; bullets: string[] }> = {
   nma: {
     title: 'Building scalable web applications at NMA Software',
     bullets: [
+      'Developed full-stack Carpool Management System with real-time GPS map integration',
+      'Built Dental E-commerce platform using React, Redux, Node.js, SQL, AWS, PayPal, and Stripe',
+      'Developed fundraising platform with secure payments and user management',
       'Developed RESTful backend APIs with Node.js & Express',
       'Built dynamic frontends using React & Redux',
       'Managed complex PostgreSQL schemas & queries',
-      'Implemented real-time features with WebSockets',
-      'Handled AWS S3 media storage & secure uploads',
+      'Implemented real-time features using WebSockets',
+      'Handled AWS S3 media storage & secure file uploads',
     ],
   },
   intern: {
     title: 'Contributed to multiple web projects at Apps Technologies',
     bullets: [
-      'Built web applications with Laravel & PHP',
+      'Built and maintained web applications using Laravel & PHP with full-stack contributions',
+      'Collaborated with team members and mentors on Pinthanna ERP system development',
+      'Participated in code reviews, received feedback, and improved code quality through iteration',
+      'Migrated Seylan Mail Management System from CodeIgniter to Laravel',
+      'Contributed to technical article writing and documentation',
       'Enhanced UI interactions using jQuery & JavaScript',
-      'Collaborated via GitHub version control',
-      'Learned MVC architecture in production environment',
+      'Worked with GitHub for version control and team collaboration',
     ],
   },
   edu: {
