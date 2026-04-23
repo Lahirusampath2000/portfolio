@@ -15,7 +15,7 @@ interface Skill {
 
 const categories: { id: CategoryId; label: string; emoji: string; color: string; skills: Skill[] }[] = [
   {
-    id: 'languages', label: 'Languages', emoji: '💻', color: '#4caf72',
+    id: 'languages', label: 'Programming Languages', emoji: '💻', color: '#4caf72',
     skills: [
       { label: 'JavaScript', icon: SiJavascript,  color: '#f7df1e' },
       { label: 'HTML5',      icon: SiHtml5,        color: '#e34f26' },
@@ -44,7 +44,7 @@ const categories: { id: CategoryId; label: string; emoji: string; color: string;
     id: 'tools', label: 'Tools', emoji: '🛠️', color: '#8aad95',
     skills: [
       { label: 'PostgreSQL', icon: SiPostgresql,  color: '#336791' },
-      { label: 'AWS S3',     icon: FaAws,         color: '#ff9900' },
+      { label: 'AWS',     icon: FaAws,         color: '#ff9900' },
       { label: 'Postman',    icon: SiPostman,     color: '#ff6c37' },
       { label: 'GitHub',     icon: FaGithub,      color: '#050505' },
       { label: 'Bitbucket',  icon: SiBitbucket,   color: '#0052cc' },
@@ -72,7 +72,7 @@ const categories: { id: CategoryId; label: string; emoji: string; color: string;
     ],
   },
   {
-    id: 'spoken', label: 'Spoken', emoji: '🌐', color: '#8aad95',
+    id: 'spoken', label: 'Spoken Languages', emoji: '🌐', color: '#8aad95',
     skills: [
       { label: 'English', icon: MdLanguage,         color: '#4caf72' },
       { label: 'Sinhala', icon: MdOutlineTranslate, color: '#ff9900' },
