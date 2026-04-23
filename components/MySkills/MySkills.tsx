@@ -1,7 +1,7 @@
 'use client'
 import React, { useState, useEffect, useRef } from 'react'
-import { FaJava, FaPython, FaPhp, FaReact, FaBootstrap, FaGithub, FaAws, FaNodeJs } from 'react-icons/fa'
-import { SiJavascript, SiHtml5, SiExpress, SiLaravel, SiRedux, SiMysql, SiPostgresql, SiSocketdotio, SiFlask, SiOpencv, SiTensorflow, SiPycharm, SiPostman, SiStripe, SiBitbucket, SiIntellijidea, SiLeaflet } from 'react-icons/si'
+import { FaJava, FaPython, FaPhp, FaReact, FaBootstrap, FaGithub, FaAws, FaNodeJs,FaChartBar } from 'react-icons/fa'
+import { SiJavascript, SiHtml5, SiExpress, SiLaravel, SiRedux,SiPaypal, SiMysql, SiPostgresql, SiSocketdotio, SiFlask, SiOpencv, SiTensorflow, SiPycharm, SiPostman, SiStripe, SiBitbucket, SiIntellijidea, SiLeaflet } from 'react-icons/si'
 import { BsRobot, BsFiletypeCss, BsFiletypeSql } from 'react-icons/bs'
 import { MdLanguage, MdOutlineTranslate } from 'react-icons/md'
 
@@ -37,6 +37,7 @@ const categories: { id: CategoryId; label: string; emoji: string; color: string;
       { label: 'Socket.io',  icon: SiSocketdotio, color: '#0a0a0a' },
       { label: 'Laravel',    icon: SiLaravel,     color: '#ff2d20' },
       { label: 'Leaflet',    icon: SiLeaflet,     color: '#199900' },
+      { label: 'rechart',     icon: FaChartBar,    color: '#4caf72' },
       { label: 'Flask',      icon: SiFlask,       color: '#4caf72' },
     ],
   },
@@ -50,6 +51,7 @@ const categories: { id: CategoryId; label: string; emoji: string; color: string;
       { label: 'GitHub',     icon: FaGithub,      color: '#050505' },
       { label: 'Bitbucket',  icon: SiBitbucket,   color: '#0052cc' },
       { label: 'Stripe',     icon: SiStripe,      color: '#635bff' },
+      { label: 'PayPal',     icon: SiPaypal,      color: '#003087' },
       { label: 'PyCharm',    icon: SiPycharm,     color: '#090a09' },
       { label: 'IntelliJ',   icon: SiIntellijidea,color: '#080707' },
     ],
