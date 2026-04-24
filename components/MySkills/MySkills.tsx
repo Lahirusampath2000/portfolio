@@ -1,7 +1,7 @@
 'use client'
 import React, { useState, useEffect, useRef } from 'react'
-import { FaJava, FaPython, FaPhp, FaReact, FaBootstrap, FaGithub, FaAws, FaNodeJs,FaChartBar } from 'react-icons/fa'
-import { SiJavascript, SiHtml5, SiExpress, SiLaravel, SiRedux,SiPaypal,SiTailwindcss ,SiNextdotjs, SiMysql, SiPostgresql, SiSocketdotio, SiFlask, SiOpencv, SiTensorflow, SiPycharm, SiPostman, SiStripe, SiBitbucket, SiIntellijidea, SiLeaflet } from 'react-icons/si'
+import { FaJava, FaPython, FaPhp, FaReact, FaBootstrap, FaGithub, FaAws, FaNodeJs, FaChartBar } from 'react-icons/fa'
+import { SiJavascript, SiHtml5, SiExpress, SiLaravel, SiRedux, SiPaypal,SiTypescript, SiTailwindcss, SiNextdotjs, SiMysql, SiPostgresql, SiSocketdotio, SiFlask, SiOpencv, SiTensorflow, SiPycharm, SiPostman, SiStripe, SiBitbucket, SiIntellijidea, SiLeaflet } from 'react-icons/si'
 import { BsRobot, BsFiletypeCss, BsFiletypeSql } from 'react-icons/bs'
 import { MdLanguage, MdOutlineTranslate } from 'react-icons/md'
 
@@ -18,53 +18,54 @@ const categories: { id: CategoryId; label: string; emoji: string; color: string;
     id: 'languages', label: 'Programming Languages', emoji: '💻', color: '#4caf72',
     skills: [
       { label: 'JavaScript', icon: SiJavascript,  color: '#f7df1e' },
+      { label: 'TypeScript', icon: SiTypescript,  color: '#3178c6' },
       { label: 'HTML5',      icon: SiHtml5,        color: '#e34f26' },
-      { label: 'CSS',       icon: BsFiletypeCss,  color: '#1572b6' },
-      { label: 'Python',     icon: FaPython,       color: '#3776ab' },
+      { label: 'CSS',        icon: BsFiletypeCss,  color: '#1572b6' },
+      { label: 'Python',     icon: FaPython,        color: '#3776ab' },
       { label: 'SQL',        icon: BsFiletypeSql,  color: '#4caf72' },
-      { label: 'PHP',        icon: FaPhp,          color: '#777bb4' },
-      { label: 'Java',       icon: FaJava,         color: '#ed8b00' },
+      { label: 'PHP',        icon: FaPhp,           color: '#777bb4' },
+      { label: 'Java',       icon: FaJava,          color: '#ed8b00' },
     ],
   },
   {
     id: 'frameworks', label: 'Frameworks and Libraries', emoji: '⚙️', color: '#68c98a',
     skills: [
-      { label: 'React.js',   icon: FaReact,       color: '#61dafb' },
-      { label: 'Node.js',    icon: FaNodeJs,      color: '#68a063' },
-      { label: 'Next.js',    icon: SiNextdotjs,   color: '#000000' },
-      { label: 'Express.js', icon: SiExpress,     color: '#4caf72' },
-      { label: 'Redux',      icon: SiRedux,       color: '#764abc' },
-      { label: 'Bootstrap',  icon: FaBootstrap,   color: '#7952b3' },
-      { label: 'Tailwind CSS', icon: SiTailwindcss, color: '#06b6d4' },
-      { label: 'Socket.io',  icon: SiSocketdotio, color: '#0a0a0a' },
-      { label: 'Laravel',    icon: SiLaravel,     color: '#ff2d20' },
-      { label: 'Leaflet',    icon: SiLeaflet,     color: '#199900' },
-      { label: 'rechart',     icon: FaChartBar,    color: '#4caf72' },
-      { label: 'Flask',      icon: SiFlask,       color: '#060606' },
+      { label: 'React.js',    icon: FaReact,        color: '#61dafb' },
+      { label: 'Node.js',     icon: FaNodeJs,       color: '#68a063' },
+      { label: 'Next.js',     icon: SiNextdotjs,    color: '#000000' },
+      { label: 'Express.js',  icon: SiExpress,      color: '#4caf72' },
+      { label: 'Redux',       icon: SiRedux,        color: '#764abc' },
+      { label: 'Bootstrap',   icon: FaBootstrap,    color: '#7952b3' },
+      { label: 'Tailwind CSS',icon: SiTailwindcss,  color: '#06b6d4' },
+      { label: 'Socket.io',   icon: SiSocketdotio,  color: '#0a0a0a' },
+      { label: 'Laravel',     icon: SiLaravel,      color: '#ff2d20' },
+      { label: 'Leaflet',     icon: SiLeaflet,      color: '#199900' },
+      { label: 'rechart',     icon: FaChartBar,     color: '#4caf72' },
+      { label: 'Flask',       icon: SiFlask,        color: '#060606' },
     ],
   },
   {
     id: 'tools', label: 'Tools', emoji: '🛠️', color: '#8aad95',
     skills: [
-      { label: 'PostgreSQL', icon: SiPostgresql,  color: '#336791' },
-      { label: 'MySQL',      icon: SiMysql,       color: '#4479a1' },
-      { label: 'AWS',     icon: FaAws,         color: '#ff9900' },
-      { label: 'Postman',    icon: SiPostman,     color: '#ff6c37' },
-      { label: 'GitHub',     icon: FaGithub,      color: '#050505' },
-      { label: 'Bitbucket',  icon: SiBitbucket,   color: '#0052cc' },
-      { label: 'Stripe',     icon: SiStripe,      color: '#635bff' },
-      { label: 'PayPal',     icon: SiPaypal,      color: '#003087' },
-      { label: 'PyCharm',    icon: SiPycharm,     color: '#090a09' },
-      { label: 'IntelliJ',   icon: SiIntellijidea,color: '#080707' },
+      { label: 'PostgreSQL', icon: SiPostgresql,   color: '#336791' },
+      { label: 'MySQL',      icon: SiMysql,        color: '#4479a1' },
+      { label: 'AWS',        icon: FaAws,          color: '#ff9900' },
+      { label: 'Postman',    icon: SiPostman,      color: '#ff6c37' },
+      { label: 'GitHub',     icon: FaGithub,       color: '#050505' },
+      { label: 'Bitbucket',  icon: SiBitbucket,    color: '#0052cc' },
+      { label: 'Stripe',     icon: SiStripe,       color: '#635bff' },
+      { label: 'PayPal',     icon: SiPaypal,       color: '#003087' },
+      { label: 'PyCharm',    icon: SiPycharm,      color: '#090a09' },
+      { label: 'IntelliJ',   icon: SiIntellijidea, color: '#080707' },
     ],
   },
   {
     id: 'ai', label: 'AI & ML', emoji: '🧠', color: '#4caf72',
     skills: [
-      { label: 'OpenCV',          icon: SiOpencv,    color: '#5c3ee8' },
-      { label: 'TensorFlow',      icon: SiTensorflow,color: '#ff6f00' },
-      { label: 'Flask ML',        icon: SiFlask,     color: '#4caf72' },
-      { label: 'Image Processing',  icon: SiOpencv,    color: '#5c3ee8' },
+      { label: 'OpenCV',           icon: SiOpencv,     color: '#5c3ee8' },
+      { label: 'TensorFlow',       icon: SiTensorflow, color: '#ff6f00' },
+      { label: 'Flask ML',         icon: SiFlask,      color: '#4caf72' },
+      { label: 'Image Processing', icon: SiOpencv,     color: '#5c3ee8' },
     ],
   },
   {
@@ -90,7 +91,6 @@ export default function MySkills() {
   const [inView, setInView]                 = useState(false)
   const [hoveredSkill, setHoveredSkill]     = useState<string | null>(null)
   const [animKey, setAnimKey]               = useState(0)
-  const [floatMap, setFloatMap]             = useState<Record<string, number>>({})
   const sectionRef = useRef<HTMLElement>(null)
 
   useEffect(() => {
@@ -100,19 +100,6 @@ export default function MySkills() {
     )
     if (sectionRef.current) observer.observe(sectionRef.current)
     return () => observer.disconnect()
-  }, [])
-
-  useEffect(() => {
-    const id = setInterval(() => {
-      const map: Record<string, number> = {}
-      categories.forEach(cat =>
-        cat.skills.forEach((s, i) => {
-          map[s.label] = Math.sin(Date.now() / 1300 + i * 0.85) * 3
-        })
-      )
-      setFloatMap(map)
-    }, 50)
-    return () => clearInterval(id)
   }, [])
 
   const handleCategory = (id: CategoryId) => {
@@ -209,7 +196,6 @@ export default function MySkills() {
           {current.skills.map((skill, i) => {
             const Icon  = skill.icon
             const isHov = hoveredSkill === skill.label
-            const floatY = floatMap[skill.label] ?? 0
 
             return (
               <div
@@ -224,12 +210,17 @@ export default function MySkills() {
                     : '5px 5px 14px #d1d3da, -5px -5px 14px #ffffff',
                   border: `1.5px solid ${isHov ? skill.color + '77' : 'rgba(255,255,255,0.8)'}`,
                   opacity: inView ? 1 : 0,
+                  // ✅ FIX: removed JS floatY from transform — CSS animation handles floating now
                   transform: inView
-                    ? `translateY(${isHov ? -4 : floatY}px) scale(${isHov ? 1.05 : 1})`
+                    ? `translateY(${isHov ? -4 : 0}px) scale(${isHov ? 1.05 : 1})`
                     : 'translateY(24px) scale(0.94)',
+                  // ✅ FIX: CSS keyframe float — paused on hover so it doesn't fight the hover transform
+                  animation: inView && !isHov
+                    ? `fadeInCard 0.55s cubic-bezier(0.16,1,0.3,1) ${i * 0.055}s both, floatCard 2.8s ease-in-out ${i * 0.22}s infinite`
+                    : `fadeInCard 0.55s cubic-bezier(0.16,1,0.3,1) ${i * 0.055}s both`,
                   transition: isHov
-                    ? 'box-shadow 0.28s ease, border 0.28s ease, transform 0.28s cubic-bezier(0.34,1.56,0.64,1)'
-                    : `opacity 0.5s cubic-bezier(0.16,1,0.3,1) ${i * 0.055}s, transform 0.55s cubic-bezier(0.16,1,0.3,1) ${i * 0.055}s, box-shadow 0.28s ease, border 0.28s ease`,
+                    ? 'box-shadow 0.28s ease, border 0.28s ease, transform 0.28s cubic-bezier(0.34,1.56,0.64,1), opacity 0.28s ease'
+                    : 'box-shadow 0.28s ease, border 0.28s ease, transform 0.28s ease',
                 }}
               >
                 {/* Radial bloom */}
@@ -242,7 +233,7 @@ export default function MySkills() {
                   }}
                 />
 
-                {/* Icon circle — always brand colored */}
+                {/* Icon circle */}
                 <div
                   style={{
                     width: '58px', height: '58px',
@@ -325,6 +316,16 @@ export default function MySkills() {
         @keyframes fadeUp {
           from { opacity: 0; transform: translateY(12px); }
           to   { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeInCard {
+          from { opacity: 0; transform: translateY(24px) scale(0.94); }
+          to   { opacity: 1; transform: translateY(0px)  scale(1);    }
+        }
+
+        @keyframes floatCard {
+          0%, 100% { transform: translateY(0px)  scale(1); }
+          50%       { transform: translateY(-5px) scale(1); }
         }
       `}</style>
     </section>
