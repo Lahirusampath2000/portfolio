@@ -14,7 +14,7 @@ const Nav = ({ onMenuClick }: { onMenuClick?: () => void }) => {
           <div className="w-10 h-10 bg-[#eceef3] rounded-full flex items-center justify-center shadow-[3px_3px_8px_#d1d3da,-3px_-3px_8px_#ffffff]">
             <FaCode className="w-5 h-5 text-gray-500" />
           </div>
-          <span className="text-gray-600 font-bold text-lg tracking-wide leading-none">Lahiru</span>
+          <span className="text-gray-600 font-bold text-lg tracking-wide leading-none">Lahiru Sampath</span>
         </div>
 
         {/* NavLinks (Centered) */}
