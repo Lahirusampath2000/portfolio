@@ -442,7 +442,7 @@ const Hero = () => {
               </div>
 
               {/* Years badge */}
-              <div className="absolute -left-8 top-1/2 -translate-y-1/2 flex flex-col items-center px-4 py-3 rounded-2xl" style={{ background: '#eceef3', boxShadow: '4px 4px 12px #d1d3da, -4px -4px 12px #ffffff', border: '1px solid rgba(255,255,255,0.7)' }}>
+              <div className="absolute -left-8 top-1/2 -translate-y-1/2 flex flex-col hidden sm:flex items-center px-4 py-3 rounded-2xl" style={{ background: '#eceef3', boxShadow: '4px 4px 12px #d1d3da, -4px -4px 12px #ffffff', border: '1px solid rgba(255,255,255,0.7)' }}>
                 <span className="text-xl font-black text-[#4caf72]">2+</span>
                 <span className="text-[10px] font-semibold text-gray-400 tracking-widest uppercase">Years</span>
               </div>
