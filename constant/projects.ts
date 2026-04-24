@@ -47,7 +47,7 @@ export const projects: Project[] = [
     association: 'nma',
     liveUrl:     'https://pickup.school/',
     coverLabel:  'CARPOOL',
-    images:      [], // add: ['/images/projects/carpool/1.png']
+    images:      ['/images/carpool/carpool dashboard.png'], // add: ['/images/projects/carpool/1.png']
   },
   {
     id:          2,
@@ -63,12 +63,12 @@ export const projects: Project[] = [
     ],
     tech:        ['Node.js', 'Express.js', 'PostgreSQL', 'React', 'Redux', 'Socket.io', 'AWS S3', 'Stripe', 'Chakra UI'],
     status:      'live',
-    period:      'May 2025 – Present',
+    period:      'May 2025 – Jan 2026',
     category:    'SaaS Platform',
     association: 'nma',
     liveUrl:     'https://instrumedent.com/',
     coverLabel:  'DENTAL',
-    images:      [], // add: ['/images/projects/instrumedent/1.png']
+    images:      ['/images/instrumedent/InstruMeDent -products.png'], // add: ['/images/projects/instrumedent/InstruMeDent -products.png']
   },
   {
     id:          3,
@@ -82,10 +82,11 @@ export const projects: Project[] = [
       'Scalable REST APIs backed by PostgreSQL for campaign, transaction & user data',
     ],
     tech:        ['Node.js', 'Express', 'React', 'Stripe Connect', 'PostgreSQL', 'AWS S3'],
-    status:      'in-progress',
+    status:      'live',
     period:      'Dec 2025 – Present',
     category:    'FinTech',
     association: 'nma',
+    liveUrl:     'https://splendid-kleicha-56390b.netlify.app/',
     coverLabel:  'FUND',
     images:      [],
   },
@@ -129,10 +130,29 @@ export const projects: Project[] = [
     coverLabel:  'ERP',
     images:      [],
   },
+   {
+    id:          6,
+    title:       'Seylan Mail Management System',
+    tagline:     'Mail management system with Laravel migration and enhanced UI',
+    description: 'A complete ERP system built individually during internship. Covers admin and customer roles, full product CRUD, stock & pricing dashboard, cart, search, and Stripe checkout.',
+    highlights: [
+      'Admin dashboard for product management with CRUD, stock level & pricing controls',
+      'Shopping cart with live search and Stripe payment gateway for secure online transactions',
+      'Authentication & role management built with Laravel Breeze',
+      'Built end-to-end as a solo project with a Laravel/PHP stack',
+    ],
+    tech:        ['Laravel', 'PHP', 'HTML', 'CSS', 'Bootstrap', 'GitHub'],
+    status:      'completed',
+    period:      '2024',
+    category:    'Mail Management',
+    association: 'internship',
+    coverLabel:  'Banking',
+    images:      [],
+  },
 
   /* ── Personal / Academic ────────────────────────────────────── */
   {
-    id:          6,
+    id:          7,
     title:       'Greenshield',
     tagline:     'Plant disease detection system — 99 % ML accuracy',
     description: 'Web-based ML system that detects and classifies up to 38 plant diseases from uploaded photos. Identifies visually similar diseases and recommends tailored treatments using a trained model achieving 99 % accuracy.',
@@ -148,6 +168,25 @@ export const projects: Project[] = [
     category:    'AI / ML',
     association: 'academic',
     coverLabel:  'AI',
+    images:      [],
+  },
+   {
+    id:          8,
+    title:       'portfolio-lahiru',
+    tagline:     'Personal portfolio website built with Next.js and Tailwind CSS',
+    description: 'Personal portfolio website built with Next.js and Tailwind CSS',
+    highlights: [
+      'Classifies 38 plant diseases using OpenCV image processing + TensorFlow model',
+      '99 % prediction accuracy with visually similar disease matching',
+      'User auth, image upload, disease prediction & treatment suggestion flow',
+      'Flask REST backend serving a React.js SPA frontend',
+    ],
+    tech:        ['Next.js', 'Tailwind CSS', 'TypeScript', 'HTML', 'OpenCV',  'GitHub'],
+    status:      'in-progress',
+    period:      '2026',
+    category:    'portfolio',
+    association: 'personal',
+    
     images:      [],
   },
 ]
