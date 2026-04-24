@@ -3,7 +3,8 @@ import Hero from '../Hero/Hero'
 import About from '../Journey/MyJourney'
 import AboutMe from '../AboutMe/AboutMe'
 import MySkills from '../MySkills/MySkills'
-import ResponsiveMyProjects from '../MyProjects.tsx/ResponsiveMyProjects'
+import ResponsiveMyJourney from '../Journey/Responsivemyjourney '
+import MyProjects from '../MyProjects.tsx/MyProjects'
 
 
 
@@ -12,9 +13,9 @@ const Home = () => {
     <div className='overflow-hidden'>
         <Hero />
         <AboutMe/>
-        <About />
+        <ResponsiveMyJourney/>
         <MySkills/>
-        <ResponsiveMyProjects/>
+        <MyProjects/>
     </div>
   )
 }
