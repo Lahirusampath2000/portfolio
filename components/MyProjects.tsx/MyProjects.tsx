@@ -533,7 +533,42 @@ export default function MyProjects() {
             <span className="text-lg font-black tracking-[0.25em] uppercase text-gray-500">Projects</span>
           </div>
           <div className="h-[3px] w-20 rounded-full" style={{ background: 'linear-gradient(to right, transparent, #4caf72, transparent)' }} />
+
+          {/* ──  Caption block ── */}
+          <div className="flex flex-col items-center gap-4 mt-3 max-w-xl text-center">
+            <p className="text-2xl md:text-3xl font-black text-gray-700 leading-snug tracking-tight">
+              Built with purpose.{' '}
+              <span style={{ color: '#4caf72', textShadow: '0 0 18px rgba(76,175,114,0.35)' }}>
+                Optimised for impact.
+              </span>
+            </p>
+            <p className="text-sm text-gray-400 font-semibold leading-relaxed max-w-sm">
+              Real products, real users, real results — from production SaaS to academic breakthroughs.
+            </p>
+
+            {/* Interactive hint pill */}
+            <div
+              className="flex items-center gap-2 px-5 py-2.5 rounded-full mt-1"
+              style={{
+                background: '#eceef3',
+                boxShadow: '4px 4px 10px #d1d3da, -4px -4px 10px #ffffff',
+                border: '1px solid rgba(255,255,255,0.8)',
+              }}
+            >
+              <span className="text-[11px] font-black tracking-wider uppercase text-gray-400">
+                ✦ Pick a project
+              </span>
+              <span
+                className="text-[11px] font-black tracking-wider uppercase"
+                style={{ color: '#4caf72' }}
+              >
+                → click to reveal
+              </span>
+              <span className="text-[11px] font-black tracking-wider uppercase text-gray-400">✦</span>
+            </div>
+          </div>
         </div>
+        
 
         {/* ── Filter tabs ── */}
         <div className="flex flex-wrap justify-center gap-3 mb-10">
