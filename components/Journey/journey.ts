@@ -93,7 +93,7 @@ export const entries: JourneyEntry[] = [
       bullets: [
         'Completed A/L Physical Science stream',
         'Chemistry — Grade C',
-        'Combined Mathematics — Grade 2',
+        'Combined Mathematics — Grade S',
         'Physics — Grade S',
       ],
     },
