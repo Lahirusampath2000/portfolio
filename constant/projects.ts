@@ -43,7 +43,7 @@ export const projects: Project[] = [
     tech:        ['React.js', 'Express.js', 'Socket.io', 'PostgreSQL', 'Leaflet Map', 'JavaScript', 'CSS'],
     status:      'live',
     period:      'Jan 2026 – Present',
-    category:    'Real-time System',
+    category:    'Real-time Saas System',
     association: 'nma',
     liveUrl:     'https://pickup.school/',
     coverLabel:  'CARPOOL',
@@ -64,7 +64,7 @@ export const projects: Project[] = [
     tech:        ['Node.js', 'Express.js', 'PostgreSQL', 'React', 'Redux', 'Socket.io', 'AWS S3', 'Stripe', 'Chakra UI'],
     status:      'live',
     period:      'May 2025 – Jan 2026',
-    category:    'SaaS Platform',
+    category:    'E-Commerce',
     association: 'nma',
     liveUrl:     'https://instrumedent.com/',
     coverLabel:  'DENTAL',
@@ -87,7 +87,7 @@ export const projects: Project[] = [
     category:    'FinTech',
     association: 'nma',
     liveUrl:     'https://splendid-kleicha-56390b.netlify.app/',
-    coverLabel:  'FUND',
+    coverLabel:  'Fintech',
     images:      [],
   },
 
@@ -108,7 +108,7 @@ export const projects: Project[] = [
     period:      '2024',
     category:    'E-Commerce',
     association: 'internship',
-    coverLabel:  'MARKET',
+    coverLabel:  'E-COMMERCE',
     images:      [],
   },
   {
@@ -184,6 +184,7 @@ export const projects: Project[] = [
     tech:        ['Next.js', 'Tailwind CSS', 'TypeScript', 'HTML', 'OpenCV',  'GitHub'],
     status:      'in-progress',
     period:      '2026',
+    coverLabel:  'PORTFOLIO',
     category:    'portfolio',
     association: 'personal',
     
