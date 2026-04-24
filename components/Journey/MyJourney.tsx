@@ -1,12 +1,13 @@
 'use client'
 import React, { useState, useEffect } from 'react'
 
-type NodeId = 'nma' | 'intern' | 'edu'
+type NodeId = 'nma' | 'intern' | 'edu' |'school'
 
-const nodes: { id: NodeId; label: string; sub: string; period: string; icon: string; color: string }[] = [
+const nodes: { id: NodeId; label: string; sub: string; period: string; icon: string; color: string; isRoot?: boolean }[] = [
   { id: 'nma', label: 'NMA Software', sub: 'Junior Software Engineer', period: 'Apr 2025 – Present', icon: '🌿', color: '#4caf72' },
   { id: 'intern', label: 'Apps Technologies', sub: 'Software Engineer Intern', period: 'Sep 2023 – Sep 2024', icon: '🌱', color: '#68c98a' },
   { id: 'edu', label: 'Informatic Institute of Technology', sub: 'BEng (Hons) Software Engineering', period: '2021 – 2025', icon: '🌰', color: '#8aad95' },
+  { id: 'school', label: 'St. Aloysius College, Galle',       sub: 'A/L Physical Science', period: '(School)', icon: '🏫', color: '#7a5c3a', isRoot: true },
 ]
 
 const nodeDetails: Record<NodeId, { title: string; bullets: string[] }> = {
@@ -43,6 +44,25 @@ const nodeDetails: Record<NodeId, { title: string; bullets: string[] }> = {
       'Strong foundation in core computer science principles and practical applications',
     ],
   },
+  school: {
+    title: 'Foundation years at St. Aloysius College, Galle',
+    bullets: [
+      'Completed A/L Physical Science stream',
+      'Chemistry — Grade C',
+      'Combined Mathematics — Grade 2',
+      'Physics — Grade S',
+    ],
+  },
+}
+
+const NODE_Y: Record<number, number> = { 0: 80, 1: 280, 2: 480, 3: 660 }
+
+// New: tab label lookup — previously the school tab fell through to 'Education'
+const TAB_LABEL: Record<NodeId, string> = {
+  nma: 'NMA',
+  intern: 'Internship',
+  edu: 'Education',
+  school: 'School', // New school tab label
 }
 
 export default function MyJourney() {
@@ -61,10 +81,11 @@ export default function MyJourney() {
     setAnimKey((k) => k + 1)
   }
 
-  const TRUNK_TOP = 80
-  const TRUNK_MID = 280
-  const TRUNK_BOT = 480
-  const TREE_HEIGHT = 580
+  const TRUNK_TOP    = NODE_Y[0]  
+  const TRUNK_BOTTOM = NODE_Y[3] 
+  const TREE_HEIGHT  = 820
+
+  const activeNode = nodes.find((n) => n.id === active)!
 
   return (
     <section id="about" className="w-full bg-[#eceef3]" style={{ minHeight: '100vh', paddingTop: '14vh', paddingBottom: '8vh' }}>
@@ -101,39 +122,44 @@ export default function MyJourney() {
               />
 
               {/* Trunk */}
-              <div
+               <div
                 className="absolute left-1/2 -translate-x-1/2 rounded-full transition-all duration-1000"
                 style={{
                   top: `${TRUNK_TOP}px`,
-                  height: treeMounted ? `${TRUNK_BOT - TRUNK_TOP + 20}px` : '0px',
+                  height: treeMounted ? `${TRUNK_BOTTOM - TRUNK_TOP}px` : '0px',
                   width: '6px',
-                  background: 'linear-gradient(to bottom, #4caf72 0%, #68c98a 40%, #8aad95 75%, #a0b8a8 100%)',
-                  boxShadow: treeMounted ? '0 0 12px rgba(76,175,114,0.35)' : 'none',
+                  background: 'linear-gradient(to bottom, #4caf72 0%, #68c98a 30%, #8aad95 55%, #a0b8a8 75%, #7a5c3a 100%)',
+                  boxShadow: treeMounted ? '0 0 12px rgba(76,175,114,0.25)' : 'none',
                   transformOrigin: 'top center',
                 }}
               />
 
               {/* Roots */}
-              {['-14px', '0px', '14px'].map((ml, i) => (
+              {[
+                { ml: '-16px', rot: -22, h: 44, delay: 300 },
+                { ml: '0px',   rot: 0,   h: 54, delay: 380 },
+                { ml: '16px',  rot: 22,  h: 44, delay: 460 },
+              ].map(({ ml, rot, h, delay }, i) => (
                 <div
                   key={i}
                   className="absolute rounded-full transition-all duration-1000"
                   style={{
-                    bottom: '20px',
+                    top: `${TRUNK_BOTTOM}px`,
                     left: `calc(50% + ${ml})`,
                     width: '3px',
-                    height: treeMounted ? `${30 + i * 10}px` : '0px',
-                    background: 'linear-gradient(to bottom, #a0b8a8, transparent)',
-                    transform: `rotate(${(i - 1) * 18}deg)`,
+                    height: treeMounted ? `${h}px` : '0px',
+                    background: 'linear-gradient(to bottom, #7a5c3a, transparent)',
+                    transform: `rotate(${rot}deg)`,
                     transformOrigin: 'top center',
-                    transitionDelay: `${300 + i * 80}ms`,
+                    transitionDelay: `${delay}ms`,
                   }}
                 />
               ))}
 
               {/* Nodes */}
               {nodes.map((node, idx) => {
-                const yPos = idx === 0 ? TRUNK_TOP : idx === 1 ? TRUNK_MID : TRUNK_BOT
+                //  Y position sourced from NODE_Y map — correctly places school at 660px
+                const yPos     = NODE_Y[idx]
                 const isActive = active === node.id
                 return (
                   <button
@@ -142,24 +168,44 @@ export default function MyJourney() {
                     className="absolute left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center gap-2 group"
                     style={{ top: `${yPos}px`, zIndex: 10 }}
                   >
-                    {/* Circle */}
+                    {node.isRoot && (
+                      <span
+                        className="text-[8px] font-black tracking-[0.18em] uppercase px-2 py-0.5 rounded-full"
+                        style={{ background: '#7a5c3a', color: '#f5e6d3' }}
+                      >
+                        ROOT
+                      </span>
+                    )}
+
                     <div
-                      className="transition-all duration-300 flex items-center justify-center text-xl"
+                      className="relative transition-all duration-300 flex items-center justify-center text-xl"
                       style={{
                         width: isActive ? '56px' : '46px',
                         height: isActive ? '56px' : '46px',
                         borderRadius: '9999px',
                         background: '#eceef3',
+                        // outer ring color now uses node.color (brown for school)
                         boxShadow: isActive
-                          ? `inset 3px 3px 8px #c8cad1, inset -3px -3px 8px #ffffff, 0 0 0 3px ${node.color}, 0 0 20px rgba(76,175,114,0.45)`
+                          ? `inset 3px 3px 8px #c8cad1, inset -3px -3px 8px #ffffff, 0 0 0 3px ${node.color}, 0 0 20px ${node.color}55`
                           : '5px 5px 14px #d1d3da, -5px -5px 14px #ffffff',
                         border: `2px solid ${isActive ? node.color : 'rgba(255,255,255,0.7)'}`,
                       }}
                     >
+                      {node.isRoot && (
+                        <div
+                          className="absolute inset-0 rounded-full pointer-events-none"
+                          style={{
+                            border: '1.5px dashed #a07850',
+                            margin: '5px',
+                            borderRadius: '9999px',
+                            opacity: 0.65,
+                          }}
+                        />
+                      )}
                       {node.icon}
                     </div>
 
-                    {/* Label below node */}
+                    {/* Label card below node */}
                     <div
                       className="flex flex-col items-center gap-0.5 px-2 py-1 rounded-xl transition-all duration-300"
                       style={{
@@ -167,13 +213,23 @@ export default function MyJourney() {
                         boxShadow: isActive
                           ? 'inset 2px 2px 5px #c8cad1, inset -2px -2px 5px #ffffff'
                           : '2px 2px 5px #d1d3da, -2px -2px 5px #ffffff',
-                        minWidth: '120px',
+                        //  widened slightly from 120px to 128px to fit school name
+                        minWidth: '128px',
                       }}
                     >
-                      <span className="text-[10px] font-black tracking-wide uppercase text-center transition-colors duration-300" style={{ color: isActive ? node.color : '#9ca3af' }}>
+                      <span
+                        className="text-[10px] font-black tracking-wide uppercase text-center transition-colors duration-300"
+                        style={{ color: isActive ? node.color : '#9ca3af' }}
+                      >
                         {node.label}
                       </span>
-                      <span className="text-[9px] font-semibold text-gray-400 tracking-wider text-center">{node.period}</span>
+                      {node.isRoot ? (
+                        <span className="text-[8px] font-semibold tracking-wider text-center" style={{ color: '#a07850' }}>
+                          Chem: C · Maths: 2 · Phy: S
+                        </span>
+                      ) : (
+                        <span className="text-[9px] font-semibold text-gray-400 tracking-wider text-center">{node.period}</span>
+                      )}
                     </div>
                   </button>
                 )
@@ -186,26 +242,25 @@ export default function MyJourney() {
           <div className="flex-1 flex flex-col gap-6" style={{ paddingTop: `${TRUNK_TOP - 20}px` }}>
 
             {/* Active node header */}
-            {(() => {
-              const node = nodes.find((n) => n.id === active)!
-              return (
-                <div key={active + '-header'} className="flex items-center gap-4" style={{ animation: 'fadeSlideIn 0.4s ease' }}>
-                  <div
-                    className="flex items-center justify-center text-2xl flex-shrink-0"
-                    style={{ width: '56px', height: '56px', borderRadius: '16px', background: '#eceef3', boxShadow: 'inset 4px 4px 10px #d1d3da, inset -4px -4px 10px #ffffff' }}
-                  >
-                    {node.icon}
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-black tracking-tight" style={{ color: node.color, textShadow: `0 0 16px ${node.color}60` }}>
-                      {node.label}
-                    </h3>
-                    <p className="text-sm font-semibold text-gray-400">{node.sub}</p>
-                    <p className="text-xs text-gray-400 mt-0.5">{node.period}</p>
-                  </div>
-                </div>
-              )
-            })()}
+            <div key={active + '-header'} className="flex items-center gap-4" style={{ animation: 'fadeSlideIn 0.4s ease' }}>
+              <div
+                className="flex items-center justify-center text-2xl flex-shrink-0"
+                style={{ width: '56px', height: '56px', borderRadius: '16px', background: '#eceef3', boxShadow: 'inset 4px 4px 10px #d1d3da, inset -4px -4px 10px #ffffff' }}
+              >
+                {activeNode.icon}
+              </div>
+              <div>
+                <h3 className="text-xl font-black tracking-tight" style={{ color: activeNode.color, textShadow: `0 0 16px ${activeNode.color}60` }}>
+                  {activeNode.label}
+                </h3>
+                <p className="text-sm font-semibold text-gray-400">{activeNode.sub}</p>
+                {/*  school node shows A/L grade summary instead of a period date */}
+                {activeNode.isRoot
+                  ? <p className="text-xs mt-0.5" style={{ color: '#a07850' }}>Chem: C &nbsp;·&nbsp; Combined Maths: 2 &nbsp;·&nbsp; Physics: S</p>
+                  : <p className="text-xs text-gray-400 mt-0.5">{activeNode.period}</p>
+                }
+              </div>
+            </div>
 
             {/* Description card */}
             <div
@@ -217,14 +272,16 @@ export default function MyJourney() {
               <ul className="flex flex-col gap-3">
                 {nodeDetails[active].bullets.map((b, i) => (
                   <li key={i} className="flex items-start gap-3 text-sm text-gray-400 leading-relaxed">
-                    <span className="mt-1.5 w-1.5 h-1.5 rounded-full flex-shrink-0" style={{ background: '#4caf72', boxShadow: '0 0 6px rgba(76,175,114,0.7)' }} />
+                    <span
+                      className="mt-1.5 w-1.5 h-1.5 rounded-full flex-shrink-0"
+                      style={{ background: activeNode.color, boxShadow: `0 0 6px ${activeNode.color}aa` }}
+                    />
                     {b}
                   </li>
                 ))}
               </ul>
             </div>
 
-            {/* Tabs */}
             <div className="flex items-center gap-3 flex-wrap">
               {nodes.map((node) => (
                 <button
@@ -239,7 +296,7 @@ export default function MyJourney() {
                   }}
                 >
                   <span>{node.icon}</span>
-                  <span>{node.id === 'nma' ? 'NMA' : node.id === 'intern' ? 'Internship' : 'Education'}</span>
+                  <span>{TAB_LABEL[node.id]}</span>
                 </button>
               ))}
             </div>
