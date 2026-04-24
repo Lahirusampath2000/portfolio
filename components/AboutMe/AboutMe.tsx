@@ -360,9 +360,8 @@ export default function AboutMe() {
 
           {/* LEFT — SVG Avatar + Stats */}
           <div
-            className="flex flex-col gap-6 flex-shrink-0"
+            className="flex flex-col gap-6 flex-shrink-0 items-center lg:items-start w-full lg:w-[280px]"
             style={{
-              width: '280px',
               opacity: inView ? 1 : 0,
               transform: inView ? 'translateX(0)' : 'translateX(-40px)',
               transition: 'all 0.8s cubic-bezier(0.16,1,0.3,1)',
@@ -372,6 +371,7 @@ export default function AboutMe() {
             <div
               className="relative overflow-hidden rounded-3xl flex-shrink-0 flex items-center justify-center"
               style={{
+                maxWidth: '320px',
                 height: '280px',
                 background: '#eceef3',
                 boxShadow: avatarHovered
@@ -409,7 +409,7 @@ export default function AboutMe() {
             </div>
 
             {/* Stats */}
-            <div className="flex flex-col gap-3">
+            <div className="flex flex-col gap-3 w-full lg:w-[280px]" style={{ maxWidth: '320px' }}>
               {stats.map(({ val, label, sub }, i) => (
                 <div
                   key={label}
@@ -432,22 +432,6 @@ export default function AboutMe() {
               ))}
             </div>
 
-            {/* Copy email mini-CTA */}
-            {/* <button
-              onClick={handleCopy}
-              className="flex items-center justify-center gap-2 w-full py-3 rounded-2xl text-xs font-bold tracking-widest uppercase transition-all duration-300"
-              style={{
-                background: '#eceef3',
-                color: copyPulse ? '#4caf72' : '#9ca3af',
-                boxShadow: copyPulse
-                  ? 'inset 3px 3px 7px #c8cad1, inset -3px -3px 7px #ffffff, 0 0 0 2px rgba(76,175,114,0.4)'
-                  : '3px 3px 8px #d1d3da, -3px -3px 8px #ffffff',
-                border: `1px solid ${copyPulse ? 'rgba(76,175,114,0.35)' : 'rgba(255,255,255,0.6)'}`,
-              }}
-            >
-              <span>{copyPulse ? '✓' : '📋'}</span>
-              <span>{copyPulse ? 'Email Copied!' : 'Copy Email'}</span>
-            </button> */}
           </div>
 
           {/* RIGHT — Content */}
