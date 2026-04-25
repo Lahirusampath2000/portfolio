@@ -91,7 +91,7 @@ export const entries: JourneyEntry[] = [
     detail: {
       title: 'Advanced level at St. Aloysius College, Galle',
       bullets: [
-        'Completed A/L Physical Science stream',
+        'Successfully Completed A/L Physical Science stream',
         'Chemistry — Grade C',
         'Combined Mathematics — Grade S',
         'Physics — Grade S',

@@ -9,6 +9,54 @@ const TREE_HEIGHT   = TRUNK_BOTTOM + 160
 
 const nodeY = (idx: number): number => TRUNK_TOP + idx * NODE_SPACING
 
+function JourneyHeadline() {
+  const [shown, setShown] = useState(false)
+
+  useEffect(() => {
+    const t = setTimeout(() => setShown(true), 150)
+    return () => clearTimeout(t)
+  }, [])
+
+  const gray  = ['Every', 'step,']
+  const green = ['every', 'skill.']
+
+  return (
+    <p className="text-2xl md:text-3xl font-black leading-snug tracking-tight text-center">
+      {gray.map((w, i) => (
+        <span
+          key={w}
+          style={{
+            display: 'inline-block',
+            marginRight: '0.28em',
+            color: '#374151',
+            opacity: shown ? 1 : 0,
+            transform: shown ? 'translateY(0)' : 'translateY(12px)',
+            transition: `opacity 0.45s ease ${i * 0.1}s, transform 0.45s ease ${i * 0.1}s`,
+          }}
+        >
+          {w}
+        </span>
+      ))}
+      {green.map((w, i) => (
+        <span
+          key={w}
+          style={{
+            display: 'inline-block',
+            marginRight: i < green.length - 1 ? '0.28em' : 0,
+            color: '#4caf72',
+            opacity: shown ? 1 : 0,
+            transform: shown ? 'translateY(0) scale(1)' : 'translateY(12px) scale(0.95)',
+            textShadow: shown ? '0 0 20px rgba(76,175,114,0.4)' : 'none',
+            transition: `opacity 0.45s ease ${(gray.length + i) * 0.1}s, transform 0.45s ease ${(gray.length + i) * 0.1}s`,
+          }}
+        >
+          {w}
+        </span>
+      ))}
+    </p>
+  )
+}
+
 export default function MyJourney() {
   const [active, setActive]           = useState<NodeId>(entries[0].id)
   const [animKey, setAnimKey]         = useState(0)
@@ -31,13 +79,13 @@ export default function MyJourney() {
     <section
       id="about"
       className="w-full bg-[#eceef3]"
-      style={{ minHeight: '100vh', paddingTop: '14vh', paddingBottom: '8vh' }}
+      style={{ minHeight: '100vh', paddingTop: '3vh', paddingBottom: '8vh' }}
     >
       <div className="max-w-5xl mx-auto px-6">
 
-        {/* Heading */}
+        {/* ── Heading ── */}
         <div className="flex flex-col items-center gap-3 mb-16">
-          <div
+          {/* <div
             className="flex items-center gap-3 px-6 py-3 rounded-full"
             style={{
               background: '#eceef3',
@@ -54,14 +102,43 @@ export default function MyJourney() {
           <div
             className="h-px w-48"
             style={{ background: 'linear-gradient(to right, transparent, rgba(76,175,114,0.5), transparent)' }}
-          />
+          /> */}
+
+          {/* ── Caption ── */}
+          <div className="flex flex-col items-center gap-3 mt-2 text-center max-w-sm">
+            <JourneyHeadline />
+            <p className="text-sm font-semibold leading-relaxed" style={{ color: '#9ca3af' }}>
+              From classroom to production — school, internship, and a Junior Software engineering role.
+            </p>
+
+            {/* Hint pill */}
+            <div
+              className="flex items-center gap-2 px-5 py-2.5 rounded-full"
+              style={{
+                background: '#eceef3',
+                boxShadow: '4px 4px 10px #d1d3da, -4px -4px 10px #ffffff',
+                border: '1px solid rgba(255,255,255,0.8)',
+              }}
+            >
+              <span
+                className="w-1.5 h-1.5 rounded-full animate-pulse flex-shrink-0"
+                style={{ background: '#4caf72', boxShadow: '0 0 6px #4caf72' }}
+              />
+              <span className="text-[11px] font-black tracking-wider uppercase text-gray-400">
+                Tap a node
+              </span>
+              <span
+                className="text-[11px] font-black tracking-wider uppercase"
+                style={{ color: '#4caf72' }}
+              >
+                → reveal the chapter
+              </span>
+            </div>
+          </div>
         </div>
+        <div className="flex flex-col md:flex-row items-start gap-8 md:gap-20 justify-center">
 
-        {/* Main layout */}
-        <div className="flex flex-col lg:flex-row items-start gap-20 justify-center">
-
-          {/* Tree column */}
-          <div className="flex-shrink-0 flex justify-center" style={{ minWidth: '180px' }}>
+          <div className="flex-shrink-0 flex justify-center order-2 md:order-1" style={{ minWidth: '180px' }}>
             <div className="relative" style={{ width: '160px', height: `${TREE_HEIGHT}px` }}>
 
               {/* Canopy glow */}
@@ -194,8 +271,13 @@ export default function MyJourney() {
             </div>
           </div>
 
-          {/* Detail panel */}
-          <div className="flex-1 flex flex-col gap-6" style={{ paddingTop: `${TRUNK_TOP - 20}px` }}>
+          {/* ── Detail panel ─────────────────────────────────────────────
+              order-1 on mobile  → floats above the tree, no scroll needed
+              order-2 on md+     → right-hand column (original behaviour)
+              paddingTop: 0 on mobile, 60 px on md+ (aligns with tree top) */}
+          <div
+            className="flex-1 flex flex-col gap-6 order-1 md:order-2 pt-0 md:pt-[60px] w-full"
+          >
 
             {/* Header */}
             <div
@@ -284,7 +366,7 @@ export default function MyJourney() {
             <div className="flex items-center gap-4 flex-wrap mt-1">
               {[
                 { val: '2+',  label: 'Years Exp'  },
-                { val: '5+',  label: 'Projects'   },
+                { val: '10+',  label: 'Projects'   },
                 { val: '10+', label: 'Tech Stack' },
               ].map(({ val, label }) => (
                 <div
