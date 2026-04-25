@@ -271,12 +271,9 @@ const Hero = () => {
 
             {/* Name */}
             <div className="flex flex-col gap-0">
-              <span className="text-sm font-semibold tracking-[0.3em] uppercase text-[#4caf72] mb-1">Hello, I'm</span>
+              <span className="text-md  font-semibold tracking-[0.3em] uppercase text-[#4caf72] mb-1">Hello, I'm</span>
               <h1 className="leading-[1.0] tracking-tight" style={{ fontSize: 'clamp(46px, 5.5vw, 78px)', fontWeight: 900 }}>
-                {/* Lahiru — solid dark */}
                 <span className="text-gray-700 block">Lahiru</span>
-
-                {/* Sampath — neumorphic depth treatment, shifted right, matches design palette */}
                 <span
                   className="block text-gray-800"
                   style={{
@@ -294,9 +291,9 @@ const Hero = () => {
               </h1>
             </div>
 
-            {/* Typewriter — no left line */}
+            {/* Typewriter  */}
             <div className="flex items-center gap-0 h-8">
-              <p className="text-lg md:text-xl font-bold tracking-wide text-[#4caf72]">
+              <p className="text-xl md:text-2xl font-bold tracking-wide text-[#4caf72]">
                 {displayed}
                 <span className="inline-block w-[2px] h-5 ml-[2px] align-middle animate-pulse" style={{ background: '#4caf72' }} />
               </p>
