@@ -21,7 +21,7 @@ const SERVICES: Service[] = [
     short: 'Web Development',
     tagline: 'Sites that load fast and look sharp.',
     desc: 'Custom websites and web applications built from scratch — pixel-perfect, fully responsive, and production-ready from day one.',
-    tags: ['React', 'Next.js', 'Node.js', 'PostgreSQL'],
+    tags: ['React', 'Next.js', 'Node.js', 'PostgreSQL', 'MySQL', 'React.js', 'Laravel', 'SEO'],
     features: ['Custom UI design', 'REST API integration', 'Auth & user roles', 'Mobile responsive', 'Performance optimised', 'SEO-ready structure'],
     icon: (
       <svg viewBox="0 0 28 28" fill="none" width="22" height="22" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
@@ -37,7 +37,7 @@ const SERVICES: Service[] = [
     short: 'E-Commerce',
     tagline: 'Stores built to convert.',
     desc: 'Full-featured online stores with product management, secure payment flows, and order tracking — everything you need to sell confidently.',
-    tags: ['Stripe', 'PayPal', 'Laravel', 'MySQL'],
+    tags: ['Stripe', 'PayPal', 'Laravel', 'MySQL', 'React.js', 'Node.js', 'PostgreSQL', 'Next.js'],
     features: ['Product catalogue', 'Secure checkout', 'Stripe & PayPal', 'Order management', 'Inventory tracking', 'Admin dashboard'],
     icon: (
       <svg viewBox="0 0 28 28" fill="none" width="22" height="22" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
@@ -54,7 +54,7 @@ const SERVICES: Service[] = [
     short: 'Web Application',
     tagline: 'Complex problems, elegant solutions.',
     desc: 'Data-driven web apps with real-time features, multi-role access control, and scalable architecture that grows with your users.',
-    tags: ['Socket.io', 'Redux', 'AWS', 'TypeScript'],
+    tags: ['WebSockets', 'Redux', 'AWS', 'TypeScript', 'React.js', 'Node.js', 'PostgreSQL'],
     features: ['Real-time updates', 'Multi-role access', 'Live dashboards', 'Cloud deployment', 'Scalable backend', 'Data visualisation'],
     icon: (
       <svg viewBox="0 0 28 28" fill="none" width="22" height="22" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
@@ -71,7 +71,7 @@ const SERVICES: Service[] = [
     short: 'SaaS Platform',
     tagline: 'From idea to recurring revenue.',
     desc: 'Multi-tenant SaaS platforms with subscription billing, onboarding flows, usage analytics, and the infrastructure to scale confidently.',
-    tags: ['Stripe', 'AWS', 'Next.js', 'PostgreSQL'],
+    tags: ['Stripe', 'AWS', 'Next.js', 'Node.js', 'PostgreSQL'],
     features: ['Subscription billing', 'Multi-tenancy', 'User onboarding', 'Usage analytics', 'Webhook events', 'API access'],
     icon: (
       <svg viewBox="0 0 28 28" fill="none" width="22" height="22" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
@@ -340,7 +340,7 @@ function ServiceDetail({ service, animKey }: { service: Service; animKey: number
         <div className="flex flex-wrap gap-2">
           {service.tags.map((tag, ti) => (
             <span
-              key={tag}
+              key={`${tag}-${ti}`}
               className="text-[10px] font-black tracking-widest uppercase px-3 py-1 rounded-full"
               style={{
                 background: '#eceef3',
@@ -592,7 +592,7 @@ export default function MyServices() {
               }}
             />
             <span className="text-lg font-black tracking-[0.25em] uppercase text-gray-500">
-              Services
+              Services I Offer
             </span>
           </div>
 
