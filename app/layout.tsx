@@ -2,11 +2,12 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import ResponsiveNav from "@/components/Home/Navbar/ResponsiveNav";
+import { ThemeProvider } from "@/context/ThemeContext";
+import DarkModeApplier from "@/components/DarkModeApplier";
 
 const geistSans = Inter({
   subsets: ["latin"],
 });
-
 
 export const metadata: Metadata = {
   title: "Lahiru Sampath Portfolio",
@@ -19,13 +20,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="en"
-    >
-      <body className={`${geistSans.className} antialiased  text-[#e8e8f0]`}>
-        <ResponsiveNav />
-  {children}
-</body>
+    <html lang="en">
+      <body className={`${geistSans.className} antialiased text-[#e8e8f0]`}>
+        <ThemeProvider>
+          {/* Injects dark mode CSS for inline-styled neumorphic elements */}
+          <DarkModeApplier />
+          <ResponsiveNav />
+          {children}
+        </ThemeProvider>
+      </body>
     </html>
   );
 }
