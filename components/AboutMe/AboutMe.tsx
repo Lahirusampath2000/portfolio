@@ -339,12 +339,12 @@ export default function AboutMe() {
       ref={sectionRef}
       id="about"
       className="w-full bg-[#eceef3]"
-      style={{ paddingTop: '10vh', paddingBottom: '10vh' }}
+      style={{ paddingTop: '3vh', paddingBottom: '10vh' }}
     >
       <div className="max-w-5xl mx-auto px-6">
 
         {/* Section label */}
-        <div className="flex flex-col items-center gap-3 mb-16">
+        {/* <div className="flex flex-col items-center gap-3 mb-16">
           <div
             className="flex items-center gap-3 px-6 py-3 rounded-full"
             style={{ background: '#eceef3', boxShadow: '4px 4px 12px #d1d3da, -4px -4px 12px #ffffff', border: '1px solid rgba(255,255,255,0.7)' }}
@@ -353,7 +353,7 @@ export default function AboutMe() {
             <span className="text-sm font-black tracking-[0.3em] uppercase text-gray-500">About Me</span>
           </div>
           <div className="h-px w-48" style={{ background: 'linear-gradient(to right, transparent, rgba(76,175,114,0.5), transparent)' }} />
-        </div>
+        </div> */}
 
         {/* Main grid */}
         <div className="flex flex-col lg:flex-row gap-10 items-stretch">
