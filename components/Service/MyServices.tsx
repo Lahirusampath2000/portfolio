@@ -541,7 +541,7 @@ export default function MyServices() {
       ref={sectionRef}
       id="services"
       className="w-full bg-[#eceef3]"
-      style={{ paddingTop: '10vh', paddingBottom: '10vh' }}
+      style={{ paddingTop: '3vh', paddingBottom: '10vh' }}
     >
       {/* Keyframes only — no @import, fonts are globally available */}
       <style>{`
@@ -574,7 +574,7 @@ export default function MyServices() {
         <div className="flex flex-col items-center gap-3 mb-12">
 
           {/* Pill badge */}
-          <div
+          {/* <div
             className="flex items-center gap-3 px-7 py-3 rounded-full"
             style={{
               background: '#eceef3',
@@ -596,11 +596,11 @@ export default function MyServices() {
             </span>
           </div>
 
-          {/* Green underline */}
+          
           <div
             className="h-[3px] w-20 rounded-full"
             style={{ background: 'linear-gradient(to right, transparent, #4caf72, transparent)' }}
-          />
+          /> */}
 
           {/* Headline + subtext + hint pill */}
           <div className="flex flex-col items-center gap-4 mt-3 max-w-xl text-center">

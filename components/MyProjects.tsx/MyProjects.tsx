@@ -516,13 +516,13 @@ export default function MyProjects() {
       ref={sectionRef}
       id="projects"
       className="w-full bg-[#eceef3]"
-      style={{ paddingTop: '10vh', paddingBottom: '10vh' }}
+      style={{ paddingTop: '3vh', paddingBottom: '10vh' }}
     >
       <div className="max-w-6xl mx-auto px-6">
 
         {/* ── Heading ── */}
         <div className="flex flex-col items-center gap-3 mb-12">
-          <div
+          {/* <div
             className="flex items-center gap-3 px-7 py-3 rounded-full"
             style={{ background: '#eceef3', boxShadow: '5px 5px 14px #d1d3da, -5px -5px 14px #ffffff', border: '1px solid rgba(255,255,255,0.75)' }}
           >
@@ -532,7 +532,7 @@ export default function MyProjects() {
             />
             <span className="text-lg font-black tracking-[0.25em] uppercase text-gray-500">Projects</span>
           </div>
-          <div className="h-[3px] w-20 rounded-full" style={{ background: 'linear-gradient(to right, transparent, #4caf72, transparent)' }} />
+          <div className="h-[3px] w-20 rounded-full" style={{ background: 'linear-gradient(to right, transparent, #4caf72, transparent)' }} /> */}
 
           {/* ──  Caption block ── */}
           <div className="flex flex-col items-center gap-4 mt-3 max-w-xl text-center">

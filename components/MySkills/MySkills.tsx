@@ -114,13 +114,13 @@ export default function MySkills() {
       ref={sectionRef}
       id="skills"
       className="w-full bg-[#eceef3]"
-      style={{ paddingTop: '10vh', paddingBottom: '10vh' }}
+      style={{ paddingTop: '3vh', paddingBottom: '10vh' }}
     >
       <div className="max-w-5xl mx-auto px-6">
 
         {/* ── Centered heading ── */}
         <div className="flex flex-col items-center gap-3 mb-14">
-          <div
+          {/* <div
             className="flex items-center gap-3 px-7 py-3 rounded-full"
             style={{
               background: '#eceef3',
@@ -132,12 +132,44 @@ export default function MySkills() {
               className="w-2.5 h-2.5 rounded-full animate-pulse"
               style={{ background: '#4caf72', boxShadow: '0 0 8px #4caf72, 0 0 18px rgba(76,175,114,0.5)' }}
             />
-            <span className="text-lg font-black tracking-[0.25em] uppercase text-gray-500">Skills</span>
+            <span className="text-lg font-black tracking-[0.25em] uppercase text-gray-500">My Skills</span>
           </div>
           <div
             className="h-[3px] w-20 rounded-full"
             style={{ background: 'linear-gradient(to right, transparent, #4caf72, transparent)' }}
-          />
+          /> */}
+        </div>
+
+        {/* ── Caption ── */}
+        <div className="flex flex-col items-center gap-3 mb-12 text-center max-w-lg mx-auto">
+          <h2 className="text-4xl font-black leading-tight tracking-tight text-gray-800">
+            Learned by building.{' '}
+            <span style={{ color: '#4caf72' }}>Proven in practice.</span>
+          </h2>
+
+          {/* Hint pill */}
+          <div
+            className="flex items-center gap-2 px-5 py-2.5 rounded-full"
+            style={{
+              background: '#eceef3',
+              boxShadow: '4px 4px 10px #d1d3da, -4px -4px 10px #ffffff',
+              border: '1px solid rgba(255,255,255,0.8)',
+            }}
+          >
+            <span
+              className="w-1.5 h-1.5 rounded-full animate-pulse flex-shrink-0"
+              style={{ background: '#4caf72', boxShadow: '0 0 6px #4caf72' }}
+            />
+            <span className="text-[11px] font-black tracking-wider uppercase text-gray-400">
+              Pick a category
+            </span>
+            <span
+              className="text-[11px] font-black tracking-wider uppercase"
+              style={{ color: '#4caf72' }}
+            >
+              → skills reveal
+            </span>
+          </div>
         </div>
 
         {/* ── Category tabs ── */}
@@ -210,11 +242,9 @@ export default function MySkills() {
                     : '5px 5px 14px #d1d3da, -5px -5px 14px #ffffff',
                   border: `1.5px solid ${isHov ? skill.color + '77' : 'rgba(255,255,255,0.8)'}`,
                   opacity: inView ? 1 : 0,
-                  // ✅ FIX: removed JS floatY from transform — CSS animation handles floating now
                   transform: inView
                     ? `translateY(${isHov ? -4 : 0}px) scale(${isHov ? 1.05 : 1})`
                     : 'translateY(24px) scale(0.94)',
-                  // ✅ FIX: CSS keyframe float — paused on hover so it doesn't fight the hover transform
                   animation: inView && !isHov
                     ? `fadeInCard 0.55s cubic-bezier(0.16,1,0.3,1) ${i * 0.055}s both, floatCard 2.8s ease-in-out ${i * 0.22}s infinite`
                     : `fadeInCard 0.55s cubic-bezier(0.16,1,0.3,1) ${i * 0.055}s both`,
