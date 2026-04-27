@@ -107,6 +107,7 @@ const Hero = () => {
   return (
     <div
       className="w-full relative overflow-hidden"
+      id="home"
       style={{ background: bg, minHeight: '100vh', display: 'flex', flexDirection: 'column', transition: mounted ? 'background 0.3s ease' : 'none' }}
     >
       {/* Dot grid */}
