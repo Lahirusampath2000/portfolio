@@ -1,10 +1,18 @@
+'use client'
+import { useState, useEffect } from 'react'
 import { useTheme } from '@/context/ThemeContext'
 
 export function useNeumorph() {
   const { theme } = useTheme()
-  const isDark = theme === 'dark'
+  const [mounted, setMounted] = useState(false)
 
-  /* ── Base tokens ── */
+  useEffect(() => {
+    setMounted(true)
+  }, [])
+
+  // Before mount, always return light tokens to match SSR
+  const isDark = mounted && theme === 'dark'
+
   const bg     = isDark ? '#27272e' : '#eceef3'
   const shDark = isDark ? '#17171c' : '#d1d3da'
   const shLite = isDark ? '#37373f' : '#ffffff'
@@ -16,7 +24,6 @@ export function useNeumorph() {
   const border = isDark ? 'rgba(255,255,255,0.06)' : 'rgba(255,255,255,0.60)'
   const accent = '#4caf72'
 
-  /* ── Outset shadows ── */
   const out = {
     xs:  `2px 2px 5px ${shDark}, -2px -2px 5px ${shLite}`,
     sm:  `3px 3px 8px ${shDark}, -3px -3px 8px ${shLite}`,
@@ -26,7 +33,6 @@ export function useNeumorph() {
     xxl: `12px 12px 28px ${shDark}, -12px -12px 28px ${shLite}`,
   }
 
-  /* ── Inset shadows (pressed state) ── */
   const inn = {
     xs:  `inset 2px 2px 5px ${inDark}, inset -2px -2px 5px ${inLite}`,
     sm:  `inset 3px 3px 7px ${inDark}, inset -3px -3px 7px ${inLite}`,

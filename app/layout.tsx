@@ -2,8 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import ResponsiveNav from "@/components/Home/Navbar/ResponsiveNav";
-import { ThemeProvider } from "@/context/ThemeContext";
-import DarkModeApplier from "@/components/DarkModeApplier";
+import ThemeProviderWrapper from "@/components/ThemeProviderWrapper";
 
 const geistSans = Inter({
   subsets: ["latin"],
@@ -20,14 +19,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={`${geistSans.className} antialiased text-[#e8e8f0]`}>
-        <ThemeProvider>
-          {/* Injects dark mode CSS for inline-styled neumorphic elements */}
-          <DarkModeApplier />
+    <html lang="en" suppressHydrationWarning>
+      <body className={`${geistSans.className} antialiased`}>
+        <ThemeProviderWrapper>
           <ResponsiveNav />
           {children}
-        </ThemeProvider>
+        </ThemeProviderWrapper>
       </body>
     </html>
   );
