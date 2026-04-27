@@ -272,18 +272,36 @@ const Hero = () => {
             </div>
 
             <div className="flex items-center gap-3 mt-1">
-              {[
-                { href: '#', icon: <GitHubIcon />, label: 'GitHub' },
-                { href: '#', icon: <LinkedInIcon />, label: 'LinkedIn' },
-              ].map(({ href, icon, label }) => (
-                <a key={label} href={href} aria-label={label}
-                  className="flex items-center justify-center w-10 h-10 rounded-full transition-all duration-300"
-                  style={{ background: bg, color: text3, boxShadow: nmOutSm, border: `1px solid ${border}` }}
-                  onMouseEnter={e => { e.currentTarget.style.color = '#4caf72'; e.currentTarget.style.boxShadow = `inset 2px 2px 5px ${inDark}, inset -2px -2px 5px ${inLite}` }}
-                  onMouseLeave={e => { e.currentTarget.style.color = text3; e.currentTarget.style.boxShadow = nmOutSm }}
-                >{icon}</a>
-              ))}
-            </div>
+            {[
+              { href: 'https://github.com/Lahirusampath2000', icon: <GitHubIcon />, label: 'GitHub' },
+              { href: 'https://www.linkedin.com/in/lahiru-sampath-9a0779373/', icon: <LinkedInIcon />, label: 'LinkedIn' },
+            ].map(({ href, icon, label }) => (
+              <a
+                key={label}
+                href={href}
+                aria-label={label}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-center w-10 h-10 rounded-full transition-all duration-300"
+                style={{
+                  background: bg,
+                  color: text3,
+                  boxShadow: nmOutSm,
+                  border: `1px solid ${border}`,
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.color = '#4caf72'
+                  e.currentTarget.style.boxShadow = `inset 2px 2px 5px ${inDark}, inset -2px -2px 5px ${inLite}`
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.color = text3
+                  e.currentTarget.style.boxShadow = nmOutSm
+                }}
+              >
+                {icon}
+              </a>
+            ))}
+          </div>
           </div>
 
           {/* Right — Photo */}
