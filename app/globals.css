@@ -1,2 +1,91 @@
 @import "tailwindcss";
 
+html {
+  color-scheme: light dark;
+}
+
+:root {
+  --nm-bg:       #eceef3;
+  --nm-sh-dark:  #d1d3da;
+  --nm-sh-lite:  #ffffff;
+  --nm-in-dark:  #c8cad1;
+  --nm-in-lite:  #ffffff;
+  --nm-text-1:   #1f2937;
+  --nm-text-2:   #6b7280;
+  --nm-text-3:   #9ca3af;
+  --nm-border:   rgba(255,255,255,0.7);
+  --nm-accent:   #4caf72;
+}
+
+[data-theme="dark"] {
+  --nm-bg:       #27272e;   /* mid-dark gray — NOT pitch black */
+  --nm-sh-dark:  #17171c;   /* 35+ units darker for visible depth */
+  --nm-sh-lite:  #37373f;   /* 35+ units lighter for visible depth */
+  --nm-in-dark:  #1b1b20;
+  --nm-in-lite:  #333339;
+  --nm-text-1:   #e4e4e9;
+  --nm-text-2:   #9898a4;
+  --nm-text-3:   #5c5c68;
+  --nm-border:   rgba(255, 255, 255, 0.06);
+  --nm-accent:   #4caf72;
+  color-scheme: dark;
+}
+
+/* ── Global ── */
+[data-theme="dark"] body {
+  background-color: var(--nm-bg);
+  color: var(--nm-text-1);
+}
+
+/* ── Section backgrounds ── */
+[data-theme="dark"] section,
+[data-theme="dark"] .bg-\[\#eceef3\],
+[data-theme="dark"] div.bg-\[\#eceef3\] {
+  background-color: var(--nm-bg) !important;
+}
+
+/* ── Tailwind text colors ── */
+[data-theme="dark"] .text-gray-800,
+[data-theme="dark"] .text-gray-700,
+[data-theme="dark"] .text-gray-600 { color: var(--nm-text-1) !important; }
+[data-theme="dark"] .text-gray-500 { color: var(--nm-text-2) !important; }
+[data-theme="dark"] .text-gray-400 { color: var(--nm-text-3) !important; }
+[data-theme="dark"] .text-gray-300 { color: #404048 !important; }
+
+/* ── Tailwind neumorphic box shadows (outset) ── */
+[data-theme="dark"] .shadow-\[3px_3px_8px_\#d1d3da\2c_-3px_-3px_8px_\#ffffff\]  { box-shadow: 3px  3px  8px  var(--nm-sh-dark), -3px  -3px  8px  var(--nm-sh-lite) !important; }
+[data-theme="dark"] .shadow-\[4px_4px_10px_\#d1d3da\2c_-4px_-4px_10px_\#ffffff\] { box-shadow: 4px  4px  10px var(--nm-sh-dark), -4px  -4px  10px var(--nm-sh-lite) !important; }
+[data-theme="dark"] .shadow-\[4px_4px_12px_\#d1d3da\2c_-4px_-4px_12px_\#ffffff\] { box-shadow: 4px  4px  12px var(--nm-sh-dark), -4px  -4px  12px var(--nm-sh-lite) !important; }
+[data-theme="dark"] .shadow-\[5px_5px_14px_\#d1d3da\2c_-5px_-5px_14px_\#ffffff\] { box-shadow: 5px  5px  14px var(--nm-sh-dark), -5px  -5px  14px var(--nm-sh-lite) !important; }
+[data-theme="dark"] .shadow-\[6px_6px_14px_\#d1d3da\2c_-6px_-6px_14px_\#ffffff\] { box-shadow: 6px  6px  14px var(--nm-sh-dark), -6px  -6px  14px var(--nm-sh-lite) !important; }
+[data-theme="dark"] .shadow-\[8px_8px_20px_\#d1d3da\2c_-8px_-8px_20px_\#ffffff\] { box-shadow: 8px  8px  20px var(--nm-sh-dark), -8px  -8px  20px var(--nm-sh-lite) !important; }
+[data-theme="dark"] .shadow-\[0px_8px_40px_\#c4c6cd\]                            { box-shadow: 0px  8px  40px #0d0d10 !important; }
+
+/* ── Tailwind neumorphic box shadows (inset) ── */
+[data-theme="dark"] .shadow-\[inset_3px_3px_7px_\#c8cad1\2c_inset_-3px_-3px_7px_\#ffffff\]  { box-shadow: inset 3px 3px 7px var(--nm-in-dark), inset -3px -3px 7px var(--nm-in-lite) !important; }
+[data-theme="dark"] .shadow-\[inset_4px_4px_10px_\#d1d3da\2c_inset_-4px_-4px_10px_\#ffffff\] { box-shadow: inset 4px 4px 10px var(--nm-in-dark), inset -4px -4px 10px var(--nm-in-lite) !important; }
+
+/* ── Hover inset (pressed state) ── */
+[data-theme="dark"] .hover\:shadow-\[inset_3px_3px_7px_\#c8cad1\2c_inset_-3px_-3px_7px_\#ffffff\]:hover { box-shadow: inset 3px 3px 7px var(--nm-in-dark), inset -3px -3px 7px var(--nm-in-lite) !important; }
+
+/* ── Hover text color ── */
+[data-theme="dark"] .hover\:text-\[\#4caf72\]:hover { color: #4caf72 !important; }
+
+/* ── Nav bar ── */
+[data-theme="dark"] nav > div > div.relative {
+  background-color: var(--nm-bg) !important;
+  box-shadow: 8px 8px 20px var(--nm-sh-dark), -8px -8px 20px var(--nm-sh-lite) !important;
+  border-color: var(--nm-border) !important;
+}
+
+/* ── Mobile drawer ── */
+[data-theme="dark"] .fixed.rounded-3xl {
+  background-color: var(--nm-bg) !important;
+  box-shadow: 0px 8px 40px #0d0d10 !important;
+}
+
+/* ── Inline-styled neumorphic elements ──
+   Handled by DarkModeApplier.tsx (injected <style> tag)
+   which uses [style*="..."] attribute selectors at runtime.
+   This covers all inline style= attributes in the components.
+*/
