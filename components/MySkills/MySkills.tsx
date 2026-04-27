@@ -1,17 +1,14 @@
 'use client'
 import React, { useState, useEffect, useRef } from 'react'
 import { FaJava, FaPython, FaPhp, FaReact, FaBootstrap, FaGithub, FaAws, FaNodeJs, FaChartBar } from 'react-icons/fa'
-import { SiJavascript, SiHtml5, SiExpress, SiLaravel, SiRedux, SiPaypal,SiTypescript, SiTailwindcss, SiNextdotjs, SiMysql, SiPostgresql, SiSocketdotio, SiFlask, SiOpencv, SiTensorflow, SiPycharm, SiPostman, SiStripe, SiBitbucket, SiIntellijidea, SiLeaflet } from 'react-icons/si'
+import { SiJavascript, SiHtml5, SiExpress, SiLaravel, SiRedux, SiPaypal, SiTypescript, SiTailwindcss, SiNextdotjs, SiMysql, SiPostgresql, SiSocketdotio, SiFlask, SiOpencv, SiTensorflow, SiPycharm, SiPostman, SiStripe, SiBitbucket, SiIntellijidea, SiLeaflet } from 'react-icons/si'
 import { BsRobot, BsFiletypeCss, BsFiletypeSql } from 'react-icons/bs'
 import { MdLanguage, MdOutlineTranslate } from 'react-icons/md'
+import { useNeumorph } from '@/hooks/useNeumorph'
 
 type CategoryId = 'languages' | 'frameworks' | 'tools' | 'ai' | 'aitools' | 'spoken'
 
-interface Skill {
-  label: string
-  icon: React.ElementType
-  color: string
-}
+interface Skill { label: string; icon: React.ElementType; color: string }
 
 const categories: { id: CategoryId; label: string; emoji: string; color: string; skills: Skill[] }[] = [
   {
@@ -30,18 +27,18 @@ const categories: { id: CategoryId; label: string; emoji: string; color: string;
   {
     id: 'frameworks', label: 'Frameworks and Libraries', emoji: '⚙️', color: '#68c98a',
     skills: [
-      { label: 'React.js',    icon: FaReact,        color: '#61dafb' },
-      { label: 'Node.js',     icon: FaNodeJs,       color: '#68a063' },
-      { label: 'Next.js',     icon: SiNextdotjs,    color: '#000000' },
-      { label: 'Express.js',  icon: SiExpress,      color: '#4caf72' },
-      { label: 'Redux',       icon: SiRedux,        color: '#764abc' },
-      { label: 'Bootstrap',   icon: FaBootstrap,    color: '#7952b3' },
-      { label: 'Tailwind CSS',icon: SiTailwindcss,  color: '#06b6d4' },
-      { label: 'Socket.io',   icon: SiSocketdotio,  color: '#0a0a0a' },
-      { label: 'Laravel',     icon: SiLaravel,      color: '#ff2d20' },
-      { label: 'Leaflet',     icon: SiLeaflet,      color: '#199900' },
-      { label: 'rechart',     icon: FaChartBar,     color: '#4caf72' },
-      { label: 'Flask',       icon: SiFlask,        color: '#060606' },
+      { label: 'React.js',     icon: FaReact,       color: '#61dafb' },
+      { label: 'Node.js',      icon: FaNodeJs,      color: '#68a063' },
+      { label: 'Next.js',      icon: SiNextdotjs,   color: '#9898a4' },
+      { label: 'Express.js',   icon: SiExpress,     color: '#4caf72' },
+      { label: 'Redux',        icon: SiRedux,       color: '#764abc' },
+      { label: 'Bootstrap',    icon: FaBootstrap,   color: '#7952b3' },
+      { label: 'Tailwind CSS', icon: SiTailwindcss, color: '#06b6d4' },
+      { label: 'Socket.io',    icon: SiSocketdotio, color: '#9898a4' },
+      { label: 'Laravel',      icon: SiLaravel,     color: '#ff2d20' },
+      { label: 'Leaflet',      icon: SiLeaflet,     color: '#199900' },
+      { label: 'rechart',      icon: FaChartBar,    color: '#4caf72' },
+      { label: 'Flask',        icon: SiFlask,       color: '#9898a4' },
     ],
   },
   {
@@ -51,12 +48,12 @@ const categories: { id: CategoryId; label: string; emoji: string; color: string;
       { label: 'MySQL',      icon: SiMysql,        color: '#4479a1' },
       { label: 'AWS',        icon: FaAws,          color: '#ff9900' },
       { label: 'Postman',    icon: SiPostman,      color: '#ff6c37' },
-      { label: 'GitHub',     icon: FaGithub,       color: '#050505' },
+      { label: 'GitHub',     icon: FaGithub,       color: '#9898a4' },
       { label: 'Bitbucket',  icon: SiBitbucket,    color: '#0052cc' },
       { label: 'Stripe',     icon: SiStripe,       color: '#635bff' },
       { label: 'PayPal',     icon: SiPaypal,       color: '#003087' },
-      { label: 'PyCharm',    icon: SiPycharm,      color: '#090a09' },
-      { label: 'IntelliJ',   icon: SiIntellijidea, color: '#080707' },
+      { label: 'PyCharm',    icon: SiPycharm,      color: '#9898a4' },
+      { label: 'IntelliJ',   icon: SiIntellijidea, color: '#9898a4' },
     ],
   },
   {
@@ -87,6 +84,9 @@ const categories: { id: CategoryId; label: string; emoji: string; color: string;
 ]
 
 export default function MySkills() {
+  const nm = useNeumorph()
+  const { isDark, bg, shDark, shLite, inDark, inLite, text1, text2, text3, border, accent, out, inn } = nm
+
   const [activeCategory, setActiveCategory] = useState<CategoryId>('languages')
   const [inView, setInView]                 = useState(false)
   const [hoveredSkill, setHoveredSkill]     = useState<string | null>(null)
@@ -113,79 +113,39 @@ export default function MySkills() {
     <section
       ref={sectionRef}
       id="skills"
-      className="w-full bg-[#eceef3]"
-      style={{ paddingTop: '3vh', paddingBottom: '10vh' }}
+      className="w-full"
+      style={{ background: bg, paddingTop: '3vh', paddingBottom: '10vh', transition: 'background 0.3s ease' }}
     >
       <div className="max-w-5xl mx-auto px-6">
 
-        {/* ── Centered heading ── */}
-        <div className="flex flex-col items-center gap-3 mb-14">
-          {/* <div
-            className="flex items-center gap-3 px-7 py-3 rounded-full"
-            style={{
-              background: '#eceef3',
-              boxShadow: '5px 5px 14px #d1d3da, -5px -5px 14px #ffffff',
-              border: '1px solid rgba(255,255,255,0.75)',
-            }}
-          >
-            <span
-              className="w-2.5 h-2.5 rounded-full animate-pulse"
-              style={{ background: '#4caf72', boxShadow: '0 0 8px #4caf72, 0 0 18px rgba(76,175,114,0.5)' }}
-            />
-            <span className="text-lg font-black tracking-[0.25em] uppercase text-gray-500">My Skills</span>
-          </div>
-          <div
-            className="h-[3px] w-20 rounded-full"
-            style={{ background: 'linear-gradient(to right, transparent, #4caf72, transparent)' }}
-          /> */}
-        </div>
-
-        {/* ── Caption ── */}
+        {/* Caption */}
         <div className="flex flex-col items-center gap-3 mb-12 text-center max-w-lg mx-auto">
-          <h2 className="text-4xl font-black leading-tight tracking-tight text-gray-800">
+          <h2 className="text-4xl font-black leading-tight tracking-tight" style={{ color: text1 }}>
             Learned by building.{' '}
-            <span style={{ color: '#4caf72' }}>Proven in practice.</span>
+            <span style={{ color: accent }}>Proven in practice.</span>
           </h2>
-
-          {/* Hint pill */}
           <div
             className="flex items-center gap-2 px-5 py-2.5 rounded-full"
-            style={{
-              background: '#eceef3',
-              boxShadow: '4px 4px 10px #d1d3da, -4px -4px 10px #ffffff',
-              border: '1px solid rgba(255,255,255,0.8)',
-            }}
+            style={{ background: bg, boxShadow: out.md, border: `1px solid ${border}` }}
           >
-            <span
-              className="w-1.5 h-1.5 rounded-full animate-pulse flex-shrink-0"
-              style={{ background: '#4caf72', boxShadow: '0 0 6px #4caf72' }}
-            />
-            <span className="text-[11px] font-black tracking-wider uppercase text-gray-400">
-              Pick a category
-            </span>
-            <span
-              className="text-[11px] font-black tracking-wider uppercase"
-              style={{ color: '#4caf72' }}
-            >
-              → skills reveal
-            </span>
+            <span className="w-1.5 h-1.5 rounded-full animate-pulse flex-shrink-0" style={{ background: accent, boxShadow: '0 0 6px #4caf72' }} />
+            <span className="text-[11px] font-black tracking-wider uppercase" style={{ color: text3 }}>Pick a category</span>
+            <span className="text-[11px] font-black tracking-wider uppercase" style={{ color: accent }}>→ skills reveal</span>
           </div>
         </div>
 
-        {/* ── Category tabs ── */}
+        {/* Category tabs */}
         <div className="flex flex-wrap justify-center gap-3 mb-12">
-          {categories.map((cat) => (
+          {categories.map(cat => (
             <button
               key={cat.id}
               onClick={() => handleCategory(cat.id)}
               className="flex items-center gap-2 px-5 h-[40px] rounded-full text-xs font-black tracking-wider uppercase"
               style={{
-                background: '#eceef3',
-                color: activeCategory === cat.id ? cat.color : '#9ca3af',
-                boxShadow: activeCategory === cat.id
-                  ? 'inset 3px 3px 8px #c8cad1, inset -3px -3px 8px #ffffff'
-                  : '3px 3px 8px #d1d3da, -3px -3px 8px #ffffff',
-                border: `1px solid ${activeCategory === cat.id ? cat.color + '55' : 'rgba(255,255,255,0.6)'}`,
+                background: bg,
+                color: activeCategory === cat.id ? cat.color : text3,
+                boxShadow: activeCategory === cat.id ? inn.sm : out.sm,
+                border: `1px solid ${activeCategory === cat.id ? cat.color + '55' : border}`,
                 textShadow: activeCategory === cat.id ? `0 0 8px ${cat.color}88` : 'none',
                 transition: 'all 0.3s ease',
                 cursor: 'pointer',
@@ -197,7 +157,7 @@ export default function MySkills() {
           ))}
         </div>
 
-        {/* ── Section title bar ── */}
+        {/* Section title bar */}
         <div
           key={activeCategory + '-title'}
           className="flex items-center gap-3 mb-10"
@@ -205,21 +165,17 @@ export default function MySkills() {
         >
           <span className="text-3xl">{current.emoji}</span>
           <div>
-            <h3
-              className="text-lg font-black tracking-tight"
-              style={{ color: current.color, textShadow: `0 0 16px ${current.color}55` }}
-            >
+            <h3 className="text-lg font-black tracking-tight"
+              style={{ color: current.color, textShadow: `0 0 16px ${current.color}55` }}>
               {current.label}
             </h3>
-            <p className="text-[10px] text-gray-400 tracking-widest uppercase">{current.skills.length} skills</p>
+            <p className="text-[10px] tracking-widest uppercase" style={{ color: text3 }}>{current.skills.length} skills</p>
           </div>
-          <div
-            className="flex-1 h-[2px] ml-4 rounded-full"
-            style={{ background: `linear-gradient(to right, ${current.color}55, transparent)` }}
-          />
+          <div className="flex-1 h-[2px] ml-4 rounded-full"
+            style={{ background: `linear-gradient(to right, ${current.color}55, transparent)` }} />
         </div>
 
-        {/* ── Skills grid ── */}
+        {/* Skills grid */}
         <div
           key={animKey}
           className="grid gap-5"
@@ -229,6 +185,11 @@ export default function MySkills() {
             const Icon  = skill.icon
             const isHov = hoveredSkill === skill.label
 
+            /* icon circle: in dark mode pitch-black icons get a lighter fallback */
+            const iconColor = isDark && ['#000000', '#0a0a0a', '#050505', '#060606', '#090a09', '#080707'].includes(skill.color)
+              ? '#9898a4'
+              : skill.color
+
             return (
               <div
                 key={skill.label}
@@ -236,11 +197,11 @@ export default function MySkills() {
                 onMouseLeave={() => setHoveredSkill(null)}
                 className="relative flex flex-col items-center gap-3 p-5 rounded-2xl cursor-default overflow-hidden select-none"
                 style={{
-                  background: '#eceef3',
+                  background: bg,
                   boxShadow: isHov
-                    ? `inset 4px 4px 10px #c8cad1, inset -4px -4px 10px #ffffff, 0 0 28px ${skill.color}44`
-                    : '5px 5px 14px #d1d3da, -5px -5px 14px #ffffff',
-                  border: `1.5px solid ${isHov ? skill.color + '77' : 'rgba(255,255,255,0.8)'}`,
+                    ? `${inn.md}, 0 0 28px ${iconColor}44`
+                    : out.lg,
+                  border: `1.5px solid ${isHov ? iconColor + '77' : border}`,
                   opacity: inView ? 1 : 0,
                   transform: inView
                     ? `translateY(${isHov ? -4 : 0}px) scale(${isHov ? 1.05 : 1})`
@@ -249,7 +210,7 @@ export default function MySkills() {
                     ? `fadeInCard 0.55s cubic-bezier(0.16,1,0.3,1) ${i * 0.055}s both, floatCard 2.8s ease-in-out ${i * 0.22}s infinite`
                     : `fadeInCard 0.55s cubic-bezier(0.16,1,0.3,1) ${i * 0.055}s both`,
                   transition: isHov
-                    ? 'box-shadow 0.28s ease, border 0.28s ease, transform 0.28s cubic-bezier(0.34,1.56,0.64,1), opacity 0.28s ease'
+                    ? 'box-shadow 0.28s ease, border 0.28s ease, transform 0.28s cubic-bezier(0.34,1.56,0.64,1)'
                     : 'box-shadow 0.28s ease, border 0.28s ease, transform 0.28s ease',
                 }}
               >
@@ -258,46 +219,38 @@ export default function MySkills() {
                   className="absolute inset-0 pointer-events-none rounded-2xl"
                   style={{
                     opacity: isHov ? 1 : 0,
-                    background: `radial-gradient(circle at 50% 38%, ${skill.color}28 0%, transparent 65%)`,
+                    background: `radial-gradient(circle at 50% 38%, ${iconColor}28 0%, transparent 65%)`,
                     transition: 'opacity 0.3s ease',
                   }}
                 />
 
                 {/* Icon circle */}
-                <div
-                  style={{
-                    width: '58px', height: '58px',
-                    borderRadius: '9999px',
-                    background: '#eceef3',
-                    display: 'flex', alignItems: 'center', justifyContent: 'center',
-                    boxShadow: isHov
-                      ? `inset 3px 3px 8px #c8cad1, inset -3px -3px 8px #ffffff, 0 0 0 2.5px ${skill.color}99, 0 0 20px ${skill.color}66`
-                      : '4px 4px 12px #d1d3da, -4px -4px 12px #ffffff',
-                    transform: isHov ? 'scale(1.16) rotate(-6deg)' : 'scale(1) rotate(0deg)',
-                    transition: 'all 0.35s cubic-bezier(0.34,1.56,0.64,1)',
-                  }}
-                >
-                  <Icon
-                    style={{
-                      width: '26px', height: '26px',
-                      color: skill.color,
-                      filter: isHov
-                        ? `drop-shadow(0 0 10px ${skill.color}ee)`
-                        : `drop-shadow(0 0 3px ${skill.color}66)`,
-                      transition: 'filter 0.3s ease',
-                    }}
-                  />
+                <div style={{
+                  width: '58px', height: '58px', borderRadius: '9999px', background: bg,
+                  display: 'flex', alignItems: 'center', justifyContent: 'center',
+                  boxShadow: isHov
+                    ? `${inn.sm}, 0 0 0 2.5px ${iconColor}99, 0 0 20px ${iconColor}66`
+                    : out.md,
+                  transform: isHov ? 'scale(1.16) rotate(-6deg)' : 'scale(1) rotate(0deg)',
+                  transition: 'all 0.35s cubic-bezier(0.34,1.56,0.64,1)',
+                }}>
+                  <Icon style={{
+                    width: '26px', height: '26px',
+                    color: iconColor,
+                    filter: isHov
+                      ? `drop-shadow(0 0 10px ${iconColor}ee)`
+                      : `drop-shadow(0 0 3px ${iconColor}66)`,
+                    transition: 'filter 0.3s ease',
+                  }} />
                 </div>
 
                 {/* Label */}
-                <span
-                  className="text-[11px] font-black tracking-wide text-center leading-tight"
+                <span className="text-[11px] font-black tracking-wide text-center leading-tight"
                   style={{
-                    color: isHov ? skill.color : '#9ca3af',
-                    textShadow: isHov ? `0 0 10px ${skill.color}88` : 'none',
+                    color: isHov ? iconColor : text3,
+                    textShadow: isHov ? `0 0 10px ${iconColor}88` : 'none',
                     transition: 'all 0.28s ease',
-                  }}
-                >
+                  }}>
                   {skill.label}
                 </span>
               </div>
@@ -305,7 +258,7 @@ export default function MySkills() {
           })}
         </div>
 
-        {/* ── Bottom stats ── */}
+        {/* Bottom stats */}
         <div
           className="mt-14 flex flex-wrap items-center justify-center gap-4"
           style={{
@@ -323,23 +276,13 @@ export default function MySkills() {
             <div
               key={label}
               className="flex items-center gap-3 px-5 py-3 rounded-2xl"
-              style={{
-                background: '#eceef3',
-                boxShadow: '4px 4px 12px #d1d3da, -4px -4px 12px #ffffff',
-                border: '1px solid rgba(255,255,255,0.7)',
-              }}
+              style={{ background: bg, boxShadow: out.md, border: `1px solid ${border}` }}
             >
-              <span
-                className="text-xl font-black"
-                style={{ color: '#4caf72', textShadow: '0 0 10px rgba(76,175,114,0.55)' }}
-              >
-                {val}
-              </span>
-              <span className="text-xs font-bold text-gray-400 tracking-widest uppercase">{label}</span>
+              <span className="text-xl font-black" style={{ color: accent, textShadow: '0 0 10px rgba(76,175,114,0.55)' }}>{val}</span>
+              <span className="text-xs font-bold tracking-widest uppercase" style={{ color: text3 }}>{label}</span>
             </div>
           ))}
         </div>
-
       </div>
 
       <style>{`
@@ -347,12 +290,10 @@ export default function MySkills() {
           from { opacity: 0; transform: translateY(12px); }
           to   { opacity: 1; transform: translateY(0); }
         }
-
         @keyframes fadeInCard {
           from { opacity: 0; transform: translateY(24px) scale(0.94); }
           to   { opacity: 1; transform: translateY(0px)  scale(1);    }
         }
-
         @keyframes floatCard {
           0%, 100% { transform: translateY(0px)  scale(1); }
           50%       { transform: translateY(-5px) scale(1); }
