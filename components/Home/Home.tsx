@@ -7,6 +7,7 @@ import ResponsiveMyJourney from '../Journey/Responsivemyjourney '
 import MyProjects from '../MyProjects.tsx/MyProjects'
 import MyServices from '../Service/MyServices'
 import SectionBreaker from '../SectionBreaker/Sectionbreaker'
+import Contact from '../Contact/Contact'
 
 
 const AboutSmall = () => (
@@ -86,6 +87,29 @@ const ProjectsWatermark = () => (
     <path d="M7 8l3 3-3 3M13 14h4" />
   </svg>
 )
+
+/* ── Contact ── paper plane / send */
+const ContactSmall = () => (
+  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M22 2L11 13" />
+    <path d="M22 2L15 22l-4-9-9-4 20-7z" />
+  </svg>
+)
+const ContactWatermark = () => (
+  <svg width="100%" height="100%" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="0.6" strokeLinecap="round" strokeLinejoin="round">
+    {/* Paper plane body */}
+    <path d="M22 2L11 13" />
+    <path d="M22 2L15 22l-4-9-9-4 20-7z" />
+    {/* Signal / reach lines radiating out */}
+    <path d="M2 12h2"  strokeDasharray="1.5 2" />
+    <path d="M4 7l1.5 1.5" strokeDasharray="1.5 2" />
+    <path d="M4 17l1.5-1.5" strokeDasharray="1.5 2" />
+    {/* Small dots suggesting connection nodes */}
+    <circle cx="5"  cy="12" r="0.8" fill="currentColor" stroke="none" />
+    <circle cx="11" cy="13" r="0.8" fill="currentColor" stroke="none" />
+    <circle cx="15" cy="22" r="0.8" fill="currentColor" stroke="none" />
+  </svg>
+)
  
 const Home = () => {
   return (
@@ -132,6 +156,12 @@ const Home = () => {
       />
  
       <MyProjects />
+      <SectionBreaker
+        to="contact"
+        icon={<ContactSmall />}
+        watermarkIcon={<ContactWatermark />}
+      />
+      <Contact />
  
     </div>
   )
