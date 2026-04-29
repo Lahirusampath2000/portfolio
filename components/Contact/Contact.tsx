@@ -400,7 +400,7 @@ export default function Contact() {
                   </div>
                   <div className="flex flex-col">
                     <span className="text-[10px] font-bold tracking-widest uppercase" style={{ color: text3 }}>Email</span>
-                    <CopyEmail email="lahirusampath@email.com" nm={nm} />
+                    <CopyEmail email="phlsampath2000@gmail.com" nm={nm} />
                   </div>
                 </div>
 
@@ -411,7 +411,7 @@ export default function Contact() {
                   </div>
                   <div className="flex flex-col gap-1">
                     <span className="text-[10px] font-bold tracking-widest uppercase" style={{ color: text3 }}>Based In</span>
-                    <span className="text-xs font-bold" style={{ color: text2 }}>Sri Lanka 🇱🇰 · Open to Remote</span>
+                    <span className="text-xs font-bold" style={{ color: text2 }}>Sri Lanka 🇱🇰 · Open to Work</span>
                   </div>
                 </div>
               </div>
