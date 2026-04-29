@@ -41,9 +41,9 @@ const FIELDS: Field[] = [
 
 /* ── Social Links ── */
 const SOCIALS = [
-  { icon: FiGithub,   label: 'GitHub',   href: 'https://github.com/lahirusampath',   color: '#6e76ae' },
-  { icon: FiLinkedin, label: 'LinkedIn', href: 'https://linkedin.com/in/lahirusampath', color: '#0a66c2' },
-  { icon: FiTwitter,  label: 'Twitter',  href: 'https://twitter.com/lahirusampath',  color: '#1da1f2' },
+  { icon: FiGithub,   label: 'GitHub',   href: 'https://github.com/Lahirusampath2000',   color: '#6e76ae' },
+  { icon: FiLinkedin, label: 'LinkedIn', href: 'https://www.linkedin.com/in/lahiru-sampath-9a0779373/', color: '#0a66c2' },
+  // { icon: FiTwitter,  label: 'Twitter',  href: 'https://twitter.com/lahirusampath',  color: '#1da1f2' },
 ]
 
 /* ── Animated Terminal Cursor ── */
