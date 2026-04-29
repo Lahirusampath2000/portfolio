@@ -344,7 +344,7 @@ const Hero = () => {
                     : `0 0 0 2px rgba(76,175,114,${isDark ? '0.25' : '0.15'}), 6px 6px 16px ${shDark}, -6px -6px 16px ${shLite}`,
                   transform: isHovered ? 'scale(1.04)' : 'scale(1)',
                 }}>
-                  <Image src="/images/home.jpg" alt="Lahiru Sampath" fill className="object-cover object-top"
+                  <Image src="/images/lahiru sampath.jpg" alt="Lahiru Sampath" fill className="object-cover object-top"
                     style={{ transform: isHovered ? 'scale(1.06)' : 'scale(1)', transition: 'transform 0.5s ease' }} />
                   <div className="absolute inset-0 transition-opacity duration-500"
                     style={{ opacity: isHovered ? 1 : 0, background: 'linear-gradient(135deg, rgba(255,255,255,0.08) 0%, transparent 50%, rgba(76,175,114,0.06) 100%)' }} />

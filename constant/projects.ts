@@ -111,6 +111,7 @@ export const projects: Project[] = [
     period:      '2024',
     category:    'E-Commerce',
     association: 'internship',
+    githubUrl: 'https://github.com/Lahirusampath2000/laravel_product_crud.git', 
     coverLabel:  'E-COMMERCE',
     images:      [],
   },
