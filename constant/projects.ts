@@ -68,7 +68,10 @@ export const projects: Project[] = [
     association: 'nma',
     liveUrl:     'https://instrumedent.com/',
     coverLabel:  'DENTAL',
-    images:      ['/images/instrumedent/InstruMeDent -products.png'], // add: ['/images/projects/instrumedent/InstruMeDent -products.png']
+    images: [
+  '/images/instrumedent/instrumedent-home.png',
+  '/images/instrumedent/InstruMeDent -products.png'
+], // add: ['/instrumedent-home.png']
   },
   {
     id:          3,
@@ -88,7 +91,7 @@ export const projects: Project[] = [
     association: 'nma',
     liveUrl:     'https://splendid-kleicha-56390b.netlify.app/',
     coverLabel:  'Fintech',
-    images:      [],
+    images:      ['/images/fund/fund.png'],
   },
 
   /* ── Apps Technologies (Internship) ────────────────────────── */
