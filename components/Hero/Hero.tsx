@@ -267,7 +267,6 @@ const Hero = () => {
                 View Projects
               </button>
             </a>
-
             <a href="#contact">
               <button
                 className="flex items-center gap-2 px-7 h-[46px] rounded-full font-semibold text-sm tracking-wide transition-all duration-300 cursor-pointer"
