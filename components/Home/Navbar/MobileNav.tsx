@@ -108,15 +108,28 @@ const MobileNav = ({ isOpen, onClose }: MobileNavProps) => {
 
         {/* Download CV */}
         <div className="px-5 pb-5">
+         <a href="/Lahiru_sampath_junior_software_engineer.pdf" download>
           <button
-            className="w-full flex items-center justify-center gap-2 py-3.5 rounded-2xl font-semibold text-sm tracking-wide transition-all duration-300"
-            style={{ background: bg, color: isDark ? '#e4e4e9' : '#4b5563', boxShadow: shadow, border }}
-            onMouseEnter={e => { e.currentTarget.style.color = '#4caf72'; e.currentTarget.style.boxShadow = inset }}
-            onMouseLeave={e => { e.currentTarget.style.color = isDark ? '#e4e4e9' : '#4b5563'; e.currentTarget.style.boxShadow = shadow }}
+            className="w-full flex items-center justify-center gap-2 py-3.5 rounded-2xl font-semibold text-sm tracking-wide transition-all duration-300 cursor-pointer"
+            style={{
+              background: bg,
+              color: isDark ? '#e4e4e9' : '#4b5563',
+              boxShadow: shadow,
+              border
+            }}
+            onMouseEnter={e => {
+              e.currentTarget.style.color = '#4caf72';
+              e.currentTarget.style.boxShadow = inset;
+            }}
+            onMouseLeave={e => {
+              e.currentTarget.style.color = isDark ? '#e4e4e9' : '#4b5563';
+              e.currentTarget.style.boxShadow = shadow;
+            }}
           >
             <BiDownload className="w-4 h-4" />
             Download CV
           </button>
+        </a>
         </div>
 
       </div>

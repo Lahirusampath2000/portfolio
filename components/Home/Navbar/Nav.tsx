@@ -320,17 +320,23 @@ const isDark = mountedNav ? resolvedTheme === 'dark' : false;
         {/* Right Side */}
         <div className="ml-auto flex items-center gap-3">
           <ThemeToggle isDark={isDark} mounted={mountedNav} onToggle={toggleTheme} />
-
-          <button
-            className="hidden sm:flex items-center gap-2 px-4 h-[36px] rounded-full font-semibold text-xs tracking-wide"
-            style={{ background: bg, color: text2, boxShadow: out.sm, border: `1px solid ${border}` }}
-            onMouseEnter={(e) => { e.currentTarget.style.color = accent; e.currentTarget.style.boxShadow = inn.sm; }}
-            onMouseLeave={(e) => { e.currentTarget.style.color = text2; e.currentTarget.style.boxShadow = out.sm; }}
-          >
-            <BiDownload style={{ width: 14, height: 14 }} />
-            Download CV
-          </button>
-
+          <a href="/Lahiru_sampath_junior_software_engineer.pdf" download>
+            <button
+              className="hidden sm:flex items-center gap-2 px-4 h-[36px] rounded-full font-semibold text-xs tracking-wide cursor-pointer"
+              style={{ background: bg, color: text2, boxShadow: out.sm, border: `1px solid ${border}` }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.color = accent;
+                e.currentTarget.style.boxShadow = inn.sm;
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.color = text2;
+                e.currentTarget.style.boxShadow = out.sm;
+              }}
+            >
+              <BiDownload style={{ width: 14, height: 14 }} />
+              Download CV
+            </button>
+          </a>
           <button
             onClick={onMenuClick}
             className="lg:hidden w-10 h-10 rounded-full flex items-center justify-center"
