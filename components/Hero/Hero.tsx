@@ -49,7 +49,6 @@ const Hero = () => {
   const [mounted, setMounted] = useState(false)
   useEffect(() => { setMounted(true) }, [])
 
-  // Always light until mounted — prevents hydration mismatch
   const isDark = mounted ? resolvedTheme === 'dark' : false
 
   const bg      = isDark ? '#27272e' : '#eceef3'
@@ -258,18 +257,33 @@ const Hero = () => {
             </p>
 
             <div className="flex items-center gap-3 mt-1 flex-wrap">
+              <a href="#projects">
               <button
-                className="flex items-center gap-2 px-7 h-[46px] rounded-full font-semibold text-sm tracking-wide transition-all duration-300"
+                className="flex items-center gap-2 px-7 h-[46px] rounded-full font-semibold text-sm tracking-wide transition-all duration-300 cursor-pointer"
                 style={{ background: bg, color: '#4caf72', boxShadow: nmOutMd, border: `1px solid ${border}` }}
                 onMouseEnter={e => { e.currentTarget.style.boxShadow = nmInSm }}
                 onMouseLeave={e => { e.currentTarget.style.boxShadow = nmOutMd }}
-              >View Projects</button>
+              >
+                View Projects
+              </button>
+            </a>
+
+            <a href="#contact">
               <button
-                className="flex items-center gap-2 px-7 h-[46px] rounded-full font-semibold text-sm tracking-wide transition-all duration-300"
+                className="flex items-center gap-2 px-7 h-[46px] rounded-full font-semibold text-sm tracking-wide transition-all duration-300 cursor-pointer"
                 style={{ background: bg, color: text2, boxShadow: nmOutMd, border: `1px solid ${border}` }}
-                onMouseEnter={e => { e.currentTarget.style.boxShadow = nmInSm; e.currentTarget.style.color = '#4caf72' }}
-                onMouseLeave={e => { e.currentTarget.style.boxShadow = nmOutMd; e.currentTarget.style.color = text2 }}
-              >Contact Me</button>
+                onMouseEnter={e => {
+                  e.currentTarget.style.boxShadow = nmInSm;
+                  e.currentTarget.style.color = '#4caf72';
+                }}
+                onMouseLeave={e => {
+                  e.currentTarget.style.boxShadow = nmOutMd;
+                  e.currentTarget.style.color = text2;
+                }}
+              >
+                Contact Me
+              </button>
+            </a>
             </div>
 
             <div className="flex items-center gap-3 mt-1">
