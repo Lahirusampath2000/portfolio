@@ -186,13 +186,13 @@ export const projects: Project[] = [
       'Flask REST backend serving a React.js SPA frontend',
     ],
     tech:        ['Next.js', 'Tailwind CSS', 'TypeScript', 'HTML', 'OpenCV',  'GitHub'],
-    status:      'in-progress',
+    status:      'completed',
     period:      '2026',
     coverLabel:  'PORTFOLIO',
     category:    'portfolio',
     association: 'personal',
     
-    images:      [],
+    images:      ['/images/portfolio/portfolio.png'],
   },
   {
   id:          9,
